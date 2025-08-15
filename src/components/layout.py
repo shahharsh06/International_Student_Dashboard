@@ -11,7 +11,7 @@ class DashboardLayout:
     
     def __init__(self):
         """Initialize the layout component"""
-        from config.settings import COLORS, SPACING
+        from config.design_system import COLORS, SPACING
         self.colors = COLORS
         self.spacing = SPACING
     

@@ -46,10 +46,11 @@ class OverviewTab(BaseTab):
     
     def __init__(self, processor, data, viz):
         """Initialize overview tab"""
-        super().__init__(ErrorHandler(), CacheManager())
         self.processor = processor
         self.data = data
         self.viz = viz
+        self.error_handler = ErrorHandler()
+        self.cache_manager = CacheManager()
     
     def render(self):
         """Render overview tab content"""
@@ -332,7 +333,7 @@ class OverviewTab(BaseTab):
             monthly_data = self.processor.get_monthly_summary()
             if not monthly_data.empty:
                 trend_chart = self.viz.create_monthly_trend_chart(monthly_data)
-                st.plotly_chart(trend_chart, use_container_width=True)
+                st.plotly_chart(trend_chart, use_container_width=True, config={'displayModeBar': False})
             else:
                 st.info("No trend data available")
         
@@ -386,17 +387,17 @@ class OverviewTab(BaseTab):
             with col1:
                 # Category Distribution pie chart
                 category_chart = self.viz.create_category_breakdown_chart(category_breakdown)
-                st.plotly_chart(category_chart, use_container_width=True)
+                st.plotly_chart(category_chart, use_container_width=True, config={'displayModeBar': False})
             
             with col2:
                 # Category Comparison bar chart
                 comparison_chart = self.viz.create_category_comparison_chart(category_breakdown)
-                st.plotly_chart(comparison_chart, use_container_width=True)
+                st.plotly_chart(comparison_chart, use_container_width=True, config={'displayModeBar': False})
             
             # Category trends over time
             st.markdown("### Category Trends Over Time")
             category_trend_chart = self.viz.create_category_trend_chart(expenses)
-            st.plotly_chart(category_trend_chart, use_container_width=True)
+            st.plotly_chart(category_trend_chart, use_container_width=True, config={'displayModeBar': False})
         
         except Exception as e:
             self.error_handler.display_error("Category Analysis Error", str(e))
@@ -406,10 +407,11 @@ class ExpensesTab(BaseTab):
     
     def __init__(self, processor, data, viz):
         """Initialize expenses tab"""
-        super().__init__(ErrorHandler(), CacheManager())
         self.processor = processor
         self.data = data
         self.viz = viz
+        self.error_handler = ErrorHandler()
+        self.cache_manager = CacheManager()
     
     def render(self):
         """Render expenses tab content"""
@@ -438,7 +440,7 @@ class ExpensesTab(BaseTab):
                 anomaly_chart = self.viz.create_anomaly_detection_chart(
                     self.data['expenses'], anomalies
                 )
-                st.plotly_chart(anomaly_chart, use_container_width=True)
+                st.plotly_chart(anomaly_chart, use_container_width=True, config={'displayModeBar': False})
                 
                 # Anomaly details
                 st.markdown("#### Anomaly Details")
@@ -452,183 +454,177 @@ class ExpensesTab(BaseTab):
             self.error_handler.display_error("Anomaly Detection Error", str(e))
     
     def _render_city_comparison(self):
-        """Render city comparison section"""
-        from config.settings import COLORS
+        """Render payment type comparison section"""
+        from config.design_system import COLORS
         
-        st.markdown("### City Comparison")
+        st.markdown("### Payment Type Analysis")
         
         try:
             expenses = self.data['expenses']
             
-            if len(expenses['City'].unique()) > 1:
-                # Calculate city-wise expense metrics
-                city_metrics = expenses.groupby('City').agg({
-                    'Amount': ['sum', 'mean', 'count'],
-                    'Category': 'nunique'
-                }).round(2)
+            # Calculate payment type metrics
+            payment_metrics = expenses.groupby('PaymentType').agg({
+                'Amount': ['sum', 'mean', 'count'],
+                'Category': 'nunique'
+            }).round(2)
+            
+            # Flatten column names
+            payment_metrics.columns = ['Total Expenses', 'Average Expense', 'Transaction Count', 'Unique Categories']
+            payment_metrics = payment_metrics.sort_values('Total Expenses', ascending=False)
+            
+            # Display payment type metrics
+            st.markdown("#### Payment Method Overview")
+            st.dataframe(payment_metrics, use_container_width=True)
+            
+            # Create visualizations
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                # Total expenses by payment type - Premium styling
+                fig1 = px.bar(
+                    x=payment_metrics.index,
+                    y=payment_metrics['Total Expenses'],
+                    title='Total Expenses by Payment Method',
+                    labels={'x': 'Payment Method', 'y': 'Total Expenses ($)'},
+                    color=payment_metrics['Total Expenses'],
+                    color_continuous_scale=[COLORS['primary'], COLORS['accent1'], COLORS['accent4'], COLORS['success']]
+                )
                 
-                # Flatten column names
-                city_metrics.columns = ['Total Expenses', 'Average Expense', 'Transaction Count', 'Unique Categories']
-                city_metrics = city_metrics.sort_values('Total Expenses', ascending=False)
-                
-                # Display city comparison metrics
-                st.markdown("#### City Expense Overview")
-                st.dataframe(city_metrics, use_container_width=True)
-                
-                # Create visualizations
-                col1, col2 = st.columns(2)
-                
-                with col1:
-                    # Total expenses by city - Premium styling
-                    fig1 = px.bar(
-                        x=city_metrics.index,
-                        y=city_metrics['Total Expenses'],
-                        title='Total Expenses by City',
-                        labels={'x': 'City', 'y': 'Total Expenses ($)'},
-                        color=city_metrics['Total Expenses'],
-                        color_continuous_scale=[COLORS['primary'], COLORS['accent1'], COLORS['accent4'], COLORS['success']]
-                    )
-                    
-                    # Apply premium styling
-                    fig1.update_layout(
-                        height=400,
-                        xaxis_tickangle=45,
-                        paper_bgcolor=COLORS['background'],  # Deep navy background
-                        plot_bgcolor=COLORS['surface'],   # Surface color
-                        title={
-                            'text': 'Total Expenses by City',
-                            'x': 0.5,
-                            'xanchor': 'center',
-                            'y': 0.95,
-                            'yanchor': 'top',
-                            'font': dict(
-                                size=18,
-                                color=COLORS['text_primary'],
-                                family='Inter, sans-serif'
-                            )
-                        },
-                        font=dict(
-                            family='Inter, sans-serif',
-                            color=COLORS['text_secondary']
-                        ),
-                        margin=dict(l=80, r=50, t=80, b=80)
-                    )
-                    
-                    # Update axes with premium styling
-                    fig1.update_xaxes(
-                        title_font=dict(size=14, color=COLORS['text_primary']),
-                        tickfont=dict(size=11, color=COLORS['text_secondary']),
-                        gridcolor=COLORS['grid'],
-                        gridwidth=0.5,
-                        zerolinecolor=COLORS['grid'],
-                        zerolinewidth=1
-                    )
-                    
-                    fig1.update_yaxes(
-                        title_font=dict(size=14, color=COLORS['text_primary']),
-                        tickfont=dict(size=11, color=COLORS['text_secondary']),
-                        gridcolor=COLORS['grid'],
-                        gridwidth=0.5,
-                        zerolinecolor=COLORS['grid'],
-                        zerolinewidth=1
-                    )
-                    
-                                                                # Update bars with premium styling
-                    fig1.update_traces(
-                        marker=dict(
-                            line=dict(color=COLORS['background'], width=1),
-                            opacity=0.85
-                        ),
-                        hovertemplate='<b>%{x}</b><br>' +
-                                     'Total Expenses: $%{y:,.0f}<extra></extra>',
-                        hoverlabel=dict(
-                            bgcolor=COLORS['surface'],
-                            bordercolor=COLORS['primary'],
-                            font=dict(color=COLORS['text_primary'], size=12)
+                # Apply premium styling
+                fig1.update_layout(
+                    height=400,
+                    xaxis_tickangle=45,
+                    paper_bgcolor=COLORS['background'],
+                    plot_bgcolor=COLORS['surface'],
+                    title={
+                        'text': 'Total Expenses by Payment Method',
+                        'x': 0.5,
+                        'xanchor': 'center',
+                        'y': 0.95,
+                        'yanchor': 'top',
+                        'font': dict(
+                            size=18,
+                            color=COLORS['text_primary'],
+                            family='Inter, sans-serif'
                         )
-                    )
-                    
-                    st.plotly_chart(fig1, use_container_width=True)
+                    },
+                    font=dict(
+                        family='Inter, sans-serif',
+                        color=COLORS['text_secondary']
+                    ),
+                    margin=dict(l=80, r=50, t=80, b=80)
+                )
                 
-                with col2:
-                    # Average expense by city - Premium styling
-                    fig2 = px.bar(
-                        x=city_metrics.index,
-                        y=city_metrics['Average Expense'],
-                        title='Average Expense per Transaction by City',
-                        labels={'x': 'City', 'y': 'Average Expense ($)'},
-                        color=city_metrics['Average Expense'],
-                        color_continuous_scale=[COLORS['primary'], COLORS['accent1'], COLORS['accent4'], COLORS['success']]
+                # Update axes with premium styling
+                fig1.update_xaxes(
+                    title_font=dict(size=14, color=COLORS['text_primary']),
+                    tickfont=dict(size=11, color=COLORS['text_secondary']),
+                    gridcolor=COLORS['grid'],
+                    gridwidth=0.5,
+                    zerolinecolor=COLORS['grid'],
+                    zerolinewidth=1
+                )
+                
+                fig1.update_yaxes(
+                    title_font=dict(size=14, color=COLORS['text_primary']),
+                    tickfont=dict(size=11, color=COLORS['text_secondary']),
+                    gridcolor=COLORS['grid'],
+                    gridwidth=0.5,
+                    zerolinecolor=COLORS['grid'],
+                    zerolinewidth=1
+                )
+                
+                # Update bars with premium styling
+                fig1.update_traces(
+                    marker=dict(
+                        line=dict(color=COLORS['background'], width=1),
+                        opacity=0.85
+                    ),
+                    hovertemplate='<b>%{x}</b><br>' +
+                                 'Total Expenses: $%{y:,.0f}<extra></extra>',
+                    hoverlabel=dict(
+                        bgcolor=COLORS['surface'],
+                        bordercolor=COLORS['primary'],
+                        font=dict(color=COLORS['text_primary'], size=12)
                     )
-                    
-                    # Apply premium styling
-                    fig2.update_layout(
-                        height=400,
-                        xaxis_tickangle=45,
-                        paper_bgcolor=COLORS['background'],  # Deep navy background
-                        plot_bgcolor=COLORS['surface'],   # Surface color
-                        title={
-                            'text': 'Average Expense per Transaction by City',
-                            'x': 0.5,
-                            'xanchor': 'center',
-                            'y': 0.95,
-                            'yanchor': 'top',
-                            'font': dict(
-                                size=18,
-                                color=COLORS['text_primary'],
-                                family='Inter, sans-serif'
-                            )
-                        },
-                        font=dict(
-                            family='Inter, sans-serif',
-                            color='#cbd5e1'
-                        ),
-                        margin=dict(l=80, r=50, t=80, b=80)
-                    )
-                    
-                    # Update axes with premium styling
-                    fig2.update_xaxes(
-                        title_font=dict(size=14, color=COLORS['text_primary']),
-                        tickfont=dict(size=11, color=COLORS['text_secondary']),
-                        gridcolor=COLORS['grid'],
-                        gridwidth=0.5,
-                        zerolinecolor=COLORS['grid'],
-                        zerolinewidth=1
-                    )
-                    
-                    fig2.update_yaxes(
-                        title_font=dict(size=14, color=COLORS['text_primary']),
-                        tickfont=dict(size=11, color=COLORS['text_secondary']),
-                        gridcolor=COLORS['grid'],
-                        gridwidth=0.5,
-                        zerolinecolor=COLORS['grid'],
-                        zerolinewidth=1
-                    )
-                    
-                    # Update bars with premium styling
-                    fig2.update_traces(
-                        marker=dict(
-                            line=dict(color=COLORS['background'], width=1),
-                            opacity=0.85
-                        ),
-                        hovertemplate='<b>%{x}</b><br>' +
-                                     'Average Expense: $%{y:,.0f}<extra></extra>',
-                        hoverlabel=dict(
-                            bgcolor=COLORS['surface'],
-                            bordercolor=COLORS['primary'],
-                            font=dict(color=COLORS['text_primary'], size=12)
+                )
+                
+                st.plotly_chart(fig1, use_container_width=True, config={'displayModeBar': False})
+            
+            with col2:
+                # Average expense by payment type - Premium styling
+                fig2 = px.bar(
+                    x=payment_metrics.index,
+                    y=payment_metrics['Average Expense'],
+                    title='Average Expense by Payment Method',
+                    labels={'x': 'Payment Method', 'y': 'Average Expense ($)'},
+                    color=payment_metrics['Average Expense'],
+                    color_continuous_scale=[COLORS['accent2'], COLORS['accent3'], COLORS['warning'], COLORS['error']]
+                )
+                
+                # Apply premium styling
+                fig2.update_layout(
+                    height=400,
+                    xaxis_tickangle=45,
+                    paper_bgcolor=COLORS['background'],
+                    plot_bgcolor=COLORS['surface'],
+                    title={
+                        'text': 'Average Expense by Payment Method',
+                        'x': 0.5,
+                        'xanchor': 'center',
+                        'y': 0.95,
+                        'yanchor': 'top',
+                        'font': dict(
+                            size=18,
+                            color=COLORS['text_primary'],
+                            family='Inter, sans-serif'
                         )
+                    },
+                    font=dict(
+                        family='Inter, sans-serif',
+                        color=COLORS['text_secondary']
+                    ),
+                    margin=dict(l=80, r=50, t=80, b=80)
+                )
+                
+                # Update axes with premium styling
+                fig2.update_xaxes(
+                    title_font=dict(size=14, color=COLORS['text_primary']),
+                    tickfont=dict(size=11, color=COLORS['text_secondary']),
+                    gridcolor=COLORS['grid'],
+                    gridwidth=0.5,
+                    zerolinecolor=COLORS['grid'],
+                    zerolinewidth=1
+                )
+                
+                fig2.update_yaxes(
+                    title_font=dict(size=14, color=COLORS['text_primary']),
+                    tickfont=dict(size=11, color=COLORS['text_secondary']),
+                    gridcolor=COLORS['grid'],
+                    gridwidth=0.5,
+                    zerolinecolor=COLORS['grid'],
+                    zerolinewidth=1
+                )
+                
+                # Update bars with premium styling
+                fig2.update_traces(
+                    marker=dict(
+                        line=dict(color=COLORS['background'], width=1),
+                        opacity=0.85
+                    ),
+                    hovertemplate='<b>%{x}</b><br>' +
+                                 'Average Expense: $%{y:,.2f}<extra></extra>',
+                    hoverlabel=dict(
+                        bgcolor=COLORS['surface'],
+                        bordercolor=COLORS['accent2'],
+                        font=dict(color=COLORS['text_primary'], size=12)
                     )
-                    
-                    st.plotly_chart(fig2, use_container_width=True)
+                )
                 
-                # Removed Expense Categories by City section as requested
-                
-            else:
-                st.info("City comparison requires data from multiple cities.")
+                st.plotly_chart(fig2, use_container_width=True, config={'displayModeBar': False})
         
         except Exception as e:
-            self.error_handler.display_error("City Comparison Error", str(e))
+            self.error_handler.display_error("Payment Analysis Error", str(e))
     
     def _render_payment_analysis(self):
         """Render payment analysis section"""
@@ -637,7 +633,7 @@ class ExpensesTab(BaseTab):
         try:
             expenses = self.data['expenses']
             payment_pie = self.viz.create_payment_pie_chart(expenses)
-            st.plotly_chart(payment_pie, use_container_width=True)
+            st.plotly_chart(payment_pie, use_container_width=True, config={'displayModeBar': False})
         
         except Exception as e:
             self.error_handler.display_error("Payment Analysis Error", str(e))
@@ -647,9 +643,10 @@ class ScenarioAnalysisTab(BaseTab):
     
     def __init__(self, scenario_analyzer, viz):
         """Initialize scenario analysis tab"""
-        super().__init__(ErrorHandler(), CacheManager())
         self.scenario_analyzer = scenario_analyzer
         self.viz = viz
+        self.error_handler = ErrorHandler()
+        self.cache_manager = CacheManager()
     
     def render(self):
         """Render scenario analysis tab content"""
@@ -879,10 +876,11 @@ class ROIAnalysisTab(BaseTab):
     
     def __init__(self, processor, data, viz):
         """Initialize ROI analysis tab"""
-        super().__init__(ErrorHandler(), CacheManager())
         self.processor = processor
         self.data = data
         self.viz = viz
+        self.error_handler = ErrorHandler()
+        self.cache_manager = CacheManager()
     
     def render(self):
         """Render ROI analysis tab content"""
@@ -959,12 +957,12 @@ class ROIAnalysisTab(BaseTab):
         with col1:
             # Degree Cost vs Salaries chart
             degree_chart = self.viz.create_roi_analysis_chart(roi_analysis)
-            st.plotly_chart(degree_chart, use_container_width=True)
+            st.plotly_chart(degree_chart, use_container_width=True, config={'displayModeBar': False})
         
         with col2:
             # Break-even Timeline chart
             timeline_chart = self.viz.create_break_even_timeline_chart(roi_analysis)
-            st.plotly_chart(timeline_chart, use_container_width=True)
+            st.plotly_chart(timeline_chart, use_container_width=True, config={'displayModeBar': False})
     
     def _render_city_comparisons(self):
         """Render city comparison charts"""
@@ -973,12 +971,12 @@ class ROIAnalysisTab(BaseTab):
         # Top chart: Annual Salary by Role and City
         st.markdown("#### Annual Salary by Role and City")
         salary_chart = self.viz.create_salary_comparison_chart(self.data['salary_data'])
-        st.plotly_chart(salary_chart, use_container_width=True)
+        st.plotly_chart(salary_chart, use_container_width=True, config={'displayModeBar': False})
         
         # Bottom chart: Monthly Cost Comparison by City and Category
         st.markdown("#### Monthly Cost Comparison by City and Category")
         cost_chart = self.viz.create_city_comparison_chart(self.data['city_costs'])
-        st.plotly_chart(cost_chart, use_container_width=True)
+        st.plotly_chart(cost_chart, use_container_width=True, config={'displayModeBar': False})
     
     def _render_roi_insights(self):
         """Render ROI insights"""
@@ -1009,9 +1007,10 @@ class StoryTab(BaseTab):
     
     def __init__(self, viz, data):
         """Initialize story tab"""
-        super().__init__(ErrorHandler(), CacheManager())
         self.viz = viz
         self.data = data
+        self.error_handler = ErrorHandler()
+        self.cache_manager = CacheManager()
     
     def render(self):
         """Render story tab content"""
@@ -1277,7 +1276,7 @@ class StoryTab(BaseTab):
             
             # Enhanced timeline chart
             timeline_chart = self.viz.create_timeline_chart(filtered_milestones)
-            st.plotly_chart(timeline_chart, use_container_width=True)
+            st.plotly_chart(timeline_chart, use_container_width=True, config={'displayModeBar': False})
         
         except Exception as e:
             self.error_handler.display_error("Timeline Error", str(e)) 

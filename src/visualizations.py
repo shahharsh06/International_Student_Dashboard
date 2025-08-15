@@ -24,9 +24,9 @@ warnings.filterwarnings('ignore', category=RuntimeWarning)
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config.settings import (
-    COLORS, CHART_COLORS, CHART_LAYOUT, CHART_TEMPLATES, COMPONENT_SIZES
+    CHART_COLORS, CHART_LAYOUT, CHART_TEMPLATES
 )
-from config.design_system import get_chart_layout, get_hover_template, get_hover_label_config
+from config.design_system import COLORS, COMPONENT_SIZES, get_chart_layout, get_hover_template, get_hover_label_config
 
 
 class DashboardVisualizations:
@@ -616,90 +616,116 @@ class DashboardVisualizations:
         Returns:
             Plotly figure object
         """
-        if selected_categories is None:
-            selected_categories = sorted(city_costs_data['Category'].unique())
-        
-        filtered_data = city_costs_data[city_costs_data['Category'].isin(selected_categories)]
-        
-        # Create grouped bar chart with premium styling
-        fig = go.Figure()
-        
-        for i, category in enumerate(selected_categories):
-            category_data = filtered_data[filtered_data['Category'] == category]
-            color = CHART_COLORS[i % len(CHART_COLORS)]
+        try:
+            if selected_categories is None:
+                selected_categories = sorted(city_costs_data['Category'].unique())
             
-            fig.add_trace(go.Bar(
-                name=category,
-                x=category_data['City'],
-                y=category_data['MonthlyCost'],
-                marker=dict(
-                    color=color,
-                    line=dict(color=COLORS['background'], width=1),
-                    opacity=0.8
-                ),
-                hovertemplate='<b>%{x}</b><br>' +
-                             'Category: %{fullData.name}<br>' +
-                             'Monthly Cost: $%{y:,.0f}<extra></extra>',
-                hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
-                    bordercolor=color,
-                    font=dict(color=COLORS['text_primary'], size=12)
-                )
-            ))
-        
-        # Apply professional layout
-        fig = self._apply_professional_layout(
-            fig,
-            title='Monthly Cost Comparison by City and Category',
-            height=500
-        )
-        
-        # Update layout for grouped bars with better spacing
-        fig.update_layout(
-            barmode='group',
-            bargap=0.2,
-            bargroupgap=0.15,
-            margin=dict(l=80, r=120, t=100, b=100),  # Increased right margin for legend
-            legend=dict(
-                orientation="v",  # Changed to vertical for better fit
-                yanchor="top",
-                y=0.95,
-                xanchor="left",
-                x=1.02,  # Move legend outside chart area to prevent overlap
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                bordercolor=COLORS['border'],
-                borderwidth=1,
-                font=dict(
-                    color=COLORS['text_primary'],
-                    family='Inter, sans-serif',
-                    size=10
-                ),
-                itemsizing='constant',
-                itemwidth=30
+            filtered_data = city_costs_data[city_costs_data['Category'].isin(selected_categories)]
+            
+            # Create grouped bar chart with premium styling
+            fig = go.Figure()
+            
+            for i, category in enumerate(selected_categories):
+                category_data = filtered_data[filtered_data['Category'] == category]
+                color = CHART_COLORS[i % len(CHART_COLORS)]
+                
+                fig.add_trace(go.Bar(
+                    name=category,
+                    x=category_data['City'],
+                    y=category_data['Average_Cost'],
+                    marker=dict(
+                        color=color,
+                        line=dict(color=COLORS['background'], width=1),
+                        opacity=0.8
+                    ),
+                    hovertemplate='<b>%{x}</b><br>' +
+                                 'Category: %{fullData.name}<br>' +
+                                 'Average Cost: $%{y:,.0f}<extra></extra>',
+                    hoverlabel=dict(
+                        bgcolor=COLORS['surface'],
+                        bordercolor=color,
+                        font=dict(color=COLORS['text_primary'], size=12)
+                    )
+                ))
+            
+            # Apply professional layout
+            fig = self._apply_professional_layout(
+                fig,
+                title='Monthly Cost Comparison by City and Category',
+                height=500
             )
-        )
-        
-        # Update axes with better alignment
-        fig.update_xaxes(
-            title='City',
-            title_font=dict(size=14, color=COLORS['text_primary']),
-            tickfont=dict(size=11, color=COLORS['text_secondary']),
-            tickangle=45,
-            tickmode='array',
-            ticktext=filtered_data['City'].unique(),
-            tickvals=list(range(len(filtered_data['City'].unique())))
-        )
-        
-        fig.update_yaxes(
-            title='Monthly Cost ($)',
-            title_font=dict(size=14, color=COLORS['text_primary']),
-            tickfont=dict(size=11, color=COLORS['text_secondary']),
-            tickformat='$,.0f',
-            gridcolor=COLORS['border'],
-            gridwidth=0.5
-        )
-        
-        return fig
+            
+            # Update layout for grouped bars with better spacing
+            fig.update_layout(
+                barmode='group',
+                bargap=0.2,
+                bargroupgap=0.15,
+                margin=dict(l=80, r=120, t=100, b=100),  # Increased right margin for legend
+                legend=dict(
+                    orientation="v",  # Changed to vertical for better fit
+                    yanchor="top",
+                    y=0.95,
+                    xanchor="left",
+                    x=1.02,  # Move legend outside chart area to prevent overlap
+                    bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
+                    bordercolor=COLORS['border'],
+                    borderwidth=1,
+                    font=dict(
+                        color=COLORS['text_primary'],
+                        family='Inter, sans-serif',
+                        size=10
+                    ),
+                    itemsizing='constant',
+                    itemwidth=30
+                )
+            )
+            
+            # Update axes with better alignment
+            fig.update_xaxes(
+                title='City',
+                title_font=dict(size=14, color=COLORS['text_primary']),
+                tickfont=dict(size=11, color=COLORS['text_secondary']),
+                tickangle=45,
+                tickmode='array',
+                ticktext=filtered_data['City'].unique(),
+                tickvals=list(range(len(filtered_data['City'].unique())))
+            )
+            
+            fig.update_yaxes(
+                title='Monthly Cost ($)',
+                title_font=dict(size=14, color=COLORS['text_primary']),
+                tickfont=dict(size=11, color=COLORS['text_secondary']),
+                tickformat='$,.0f',
+                gridcolor=COLORS['border'],
+                gridwidth=0.5
+            )
+            
+            return fig
+            
+        except Exception as e:
+            # Create a fallback chart if the main chart fails
+            print(f"Warning: Could not create city comparison chart: {e}")
+            
+            # Create a simple bar chart instead
+            fig = go.Figure()
+            fig.add_trace(go.Bar(
+                x=city_costs_data['City'].unique(),
+                y=city_costs_data.groupby('City')['Average_Cost'].mean().values,
+                name='Average Cost by City',
+                marker_color=COLORS['primary']
+            ))
+            
+            fig.update_layout(
+                title='Average Cost by City (Simplified View)',
+                xaxis_title='City',
+                yaxis_title='Average Cost ($)',
+                height=400,
+                paper_bgcolor=COLORS['background'],
+                plot_bgcolor=COLORS['surface'],
+                font=dict(color=COLORS['text_primary'])
+            )
+            
+            return fig
     
     def create_salary_comparison_chart(self, salary_data: pd.DataFrame, 
                                      selected_cities: List[str] = None) -> go.Figure:
@@ -713,73 +739,104 @@ class DashboardVisualizations:
         Returns:
             Plotly figure object
         """
-        if selected_cities is None:
-            selected_cities = sorted(salary_data['City'].unique())
-        
-        filtered_data = salary_data[salary_data['City'].isin(selected_cities)]
-        
-        # Use 'AverageSalary' if present, else fallback to 'AnnualSalary'
-        value_col = 'AverageSalary' if 'AverageSalary' in filtered_data.columns else 'AnnualSalary'
-        pivot_data = filtered_data.pivot(index='Role', columns='City', values=value_col)
-        
-        # Create heatmap with premium styling
-        fig = go.Figure(data=go.Heatmap(
-            z=pivot_data.values,
-            x=pivot_data.columns,
-            y=pivot_data.index,
-            colorscale=[
-                [0, COLORS['surface']],
-                [0.25, COLORS['accent3']],
-                [0.5, COLORS['accent2']],
-                [0.75, COLORS['accent1']],
-                [1, COLORS['primary']]
-            ],
-            text=pivot_data.values,
-            texttemplate='$%{text:,.0f}',
-            textfont=dict(size=10, color=COLORS['text_primary']),
-            hoverongaps=False,
-            hoverlabel=dict(
-                bgcolor=COLORS['surface'],
-                bordercolor=COLORS['primary'],
-                font=dict(color=COLORS['text_primary'], size=12)
+        try:
+            if selected_cities is None:
+                selected_cities = sorted(salary_data['City'].unique())
+            
+            filtered_data = salary_data[salary_data['City'].isin(selected_cities)]
+            
+            # Use 'Total_Compensation' if present, else fallback to 'Base_Salary'
+            value_col = 'Total_Compensation' if 'Total_Compensation' in filtered_data.columns else 'Base_Salary'
+            
+            # Handle duplicate Role-City combinations by taking the mean value
+            filtered_data = filtered_data.groupby(['Role', 'City'])[value_col].mean().reset_index()
+            
+            # Create pivot table
+            pivot_data = filtered_data.pivot(index='Role', columns='City', values=value_col)
+            
+            # Create heatmap with premium styling
+            fig = go.Figure(data=go.Heatmap(
+                z=pivot_data.values,
+                x=pivot_data.columns,
+                y=pivot_data.index,
+                colorscale=[
+                    [0, COLORS['surface']],
+                    [0.25, COLORS['accent3']],
+                    [0.5, COLORS['accent2']],
+                    [0.75, COLORS['accent1']],
+                    [1, COLORS['primary']]
+                ],
+                text=pivot_data.values,
+                texttemplate='$%{text:,.0f}',
+                textfont=dict(size=10, color=COLORS['text_primary']),
+                hoverongaps=False,
+                hoverlabel=dict(
+                    bgcolor=COLORS['surface'],
+                    bordercolor=COLORS['primary'],
+                    font=dict(color=COLORS['text_primary'], size=12)
+                )
+            ))
+            
+            # Apply professional layout
+            fig = self._apply_professional_layout(fig, title='Annual Salary by Role and City', height=600)
+            
+            # Update axes with better alignment
+            fig.update_xaxes(
+                title='City',
+                title_font=dict(size=14, color=COLORS['text_primary']),
+                tickfont=dict(size=11, color=COLORS['text_secondary']),
+                tickangle=45,
+                tickmode='array',
+                ticktext=pivot_data.columns,
+                tickvals=list(range(len(pivot_data.columns)))
             )
-        ))
-        
-        # Apply professional layout
-        fig = self._apply_professional_layout(fig, title='Annual Salary by Role and City', height=600)
-        
-        # Update axes with better alignment
-        fig.update_xaxes(
-            title='City',
-            title_font=dict(size=14, color=COLORS['text_primary']),
-            tickfont=dict(size=11, color=COLORS['text_secondary']),
-            tickangle=45,
-            tickmode='array',
-            ticktext=pivot_data.columns,
-            tickvals=list(range(len(pivot_data.columns)))
-        )
-        
-        fig.update_yaxes(
-            title='Role',
-            title_font=dict(size=14, color=COLORS['text_primary']),
-            tickfont=dict(size=11, color=COLORS['text_secondary'])
-        )
-        
-        # Fix color bar label and improve layout
-        fig.update_layout(
-            coloraxis_colorbar=dict(
-                title='Annual Salary ($)',
-                title_font=dict(size=12, color=COLORS['text_primary']),
-                tickfont=dict(size=10, color=COLORS['text_secondary']),
-                tickformat='$,.0f',
-                len=0.8,
-                y=0.5,
-                yanchor='middle'
-            ),
-            margin=dict(l=80, r=120, t=100, b=100)
-        )
-        
-        return fig
+            
+            fig.update_yaxes(
+                title='Role',
+                title_font=dict(size=14, color=COLORS['text_primary']),
+                tickfont=dict(size=11, color=COLORS['text_secondary'])
+            )
+            
+            # Fix color bar label and improve layout
+            fig.update_layout(
+                coloraxis_colorbar=dict(
+                    title='Annual Salary ($)',
+                    title_font=dict(size=12, color=COLORS['text_primary']),
+                    tickfont=dict(size=10, color=COLORS['text_secondary']),
+                    tickformat='$,.0f',
+                    len=0.8,
+                    y=0.5,
+                    yanchor='middle'
+                ),
+                margin=dict(l=80, r=120, t=100, b=100)
+            )
+            
+            return fig
+            
+        except Exception as e:
+            # Create a fallback chart if pivot fails
+            print(f"Warning: Could not create salary comparison chart: {e}")
+            
+            # Create a simple bar chart instead
+            fig = go.Figure()
+            fig.add_trace(go.Bar(
+                x=filtered_data['City'].unique(),
+                y=filtered_data.groupby('City')[value_col].mean().values,
+                name='Average Salary by City',
+                marker_color=COLORS['primary']
+            ))
+            
+            fig.update_layout(
+                title='Average Salary by City (Simplified View)',
+                xaxis_title='City',
+                yaxis_title='Average Salary ($)',
+                height=400,
+                paper_bgcolor=COLORS['background'],
+                plot_bgcolor=COLORS['surface'],
+                font=dict(color=COLORS['text_primary'])
+            )
+            
+            return fig
     
     def create_roi_analysis_chart(self, roi_data: Dict) -> go.Figure:
         """

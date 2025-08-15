@@ -18,7 +18,8 @@ import time
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from config.settings import COLORS, format_currency
+from config.settings import format_currency
+from config.design_system import COLORS
 
 # Suppress warnings for performance
 warnings.filterwarnings('ignore', category=FutureWarning)

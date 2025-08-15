@@ -34,9 +34,10 @@ from src.components import (
 )
 from src.utils import ErrorHandler, CacheManager
 from config.settings import (
-    PAGE_CONFIG, COLORS, PERSONA, TIMELINE_MILESTONES,
+    PAGE_CONFIG, PERSONA, TIMELINE_MILESTONES,
     format_currency, format_percentage
 )
+from config.design_system import COLORS
 
 # Initialize Streamlit configuration
 st.set_page_config(**PAGE_CONFIG)
@@ -76,7 +77,7 @@ def main():
     # Initialize services
     layout, error_handler, cache_manager = initialize_services()
     if not all([layout, error_handler, cache_manager]):
-        st.error("❌ Dashboard initialization failed. Please refresh the page.")
+        st.error("Dashboard initialization failed. Please refresh the page.")
         return
     
     try:
@@ -120,7 +121,7 @@ def main():
             
     except Exception as e:
         error_handler.display_error("Dashboard Error", str(e))
-        st.info("💡 Please refresh the page or check your data files.")
+        st.info("Please refresh the page or check your data files.")
 
 if __name__ == "__main__":
     main() 

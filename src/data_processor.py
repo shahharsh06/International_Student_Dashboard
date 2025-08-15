@@ -287,7 +287,7 @@ class DataProcessor:
         ].copy()
         
         # Select relevant columns
-        anomalies = anomalies[['Date', 'Category', 'Amount', 'PaymentType', 'City']]
+        anomalies = anomalies[['Date', 'Category', 'Amount', 'PaymentType']]
         
         return anomalies.sort_values('Amount', ascending=False)
     
@@ -312,18 +312,27 @@ class DataProcessor:
             salary_data = pd.read_csv('data/salary_data.csv')
             
             # Calculate salary statistics across all cities and roles
-            all_salaries = salary_data['AverageSalary'].values
+            # Use Total_Compensation if AverageSalary doesn't exist
+            if 'AverageSalary' in salary_data.columns:
+                all_salaries = salary_data['AverageSalary'].values
+            elif 'Total_Compensation' in salary_data.columns:
+                all_salaries = salary_data['Total_Compensation'].values
+            else:
+                # Fallback to Base_Salary if neither exists
+                all_salaries = salary_data['Base_Salary'].values
             
             # Calculate salary ranges dynamically
             conservative_salary = float(np.min(all_salaries))  # Lowest salary in dataset
             realistic_salary = float(np.median(all_salaries))  # Median salary in dataset
             optimistic_salary = float(np.max(all_salaries))    # Highest salary in dataset
             
-            # Get city-specific statistics if available
-            city_salary_stats = salary_data.groupby('City')['AverageSalary'].agg(['min', 'median', 'max']).round(0)
-            
             # Get role-specific statistics if available
-            role_salary_stats = salary_data.groupby('Role')['AverageSalary'].agg(['min', 'median', 'max']).round(0)
+            if 'Total_Compensation' in salary_data.columns:
+                role_salary_stats = salary_data.groupby('Role')['Total_Compensation'].agg(['min', 'median', 'max']).round(0)
+            elif 'Base_Salary' in salary_data.columns:
+                role_salary_stats = salary_data.groupby('Role')['Base_Salary'].agg(['min', 'median', 'max']).round(0)
+            else:
+                role_salary_stats = pd.DataFrame()
             
             print(f"Salary ranges from dataset: Conservative=${conservative_salary:,.0f}, Realistic=${realistic_salary:,.0f}, Optimistic=${optimistic_salary:,.0f}")
             
@@ -336,11 +345,11 @@ class DataProcessor:
             city_salary_stats = pd.DataFrame()
             role_salary_stats = pd.DataFrame()
         
-        # Calculate city-specific target salaries based on actual data
-        city_salaries = self.salary_df.groupby('City')['Amount'].sum()
-        city_months = self.salary_df.groupby('City')['Date'].apply(lambda x: x.dt.to_period('M').nunique())
-        city_monthly_salaries = city_salaries / city_months
-        city_annual_salaries = city_monthly_salaries * 12
+        # Calculate overall salary statistics from actual data
+        total_salary = self.salary_df['Amount'].sum()
+        total_months = len(self.salary_df['Date'].dt.to_period('M').unique())
+        overall_monthly_salary = total_salary / total_months if total_months > 0 else 0
+        overall_annual_salary = overall_monthly_salary * 12
         
         # Realistic scenarios based on actual salary data
         scenarios = {
@@ -404,13 +413,11 @@ class DataProcessor:
             'total_degree_cost': total_expenses,
             'actual_annual_salary': actual_annual_salary,
             'actual_monthly_salary': actual_monthly_salary,
-            'city_salaries': city_annual_salaries.to_dict(),
             'salary_ranges': {
                 'conservative': conservative_salary,
                 'realistic': realistic_salary,
                 'optimistic': optimistic_salary
             },
-            'city_salary_stats': city_salary_stats.to_dict() if not city_salary_stats.empty else {},
             'role_salary_stats': role_salary_stats.to_dict() if not role_salary_stats.empty else {},
             'scenarios': roi_results,
             'break_even_years': roi_results['realistic']['break_even_years'],  # Add for test compatibility
@@ -418,7 +425,6 @@ class DataProcessor:
                 'total_expenses': total_expenses,
                 'actual_salary_total': actual_salary_total,
                 'actual_salary_months': actual_salary_months,
-                'city_breakdown': city_salaries.to_dict(),
                 'dataset_salaries': all_salaries.tolist() if 'all_salaries' in locals() else []
             }
         }

@@ -21,6 +21,15 @@ enableXsrfProtection = true
 fileWatcherType = "none"
 headless = true
 
+# Modern Streamlit settings
+[global]
+# Development settings
+developmentMode = false
+
+[logger]
+# Logging configuration
+level = "info"
+
 [browser]
 # User experience
 gatherUsageStats = false
@@ -29,12 +38,8 @@ serverPort = 8501
 
 [client]
 # Performance settings
-caching = true
-displayEnabled = true
 showErrorDetails = false
 
 [runner]
 # Execution optimization
-magicEnabled = true
-installTracer = false
-fixMatplotlib = true 
+magicEnabled = true 
