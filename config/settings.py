@@ -31,20 +31,15 @@ CHART_COLORS = [
 CATEGORY_COLORS = {
     'Rent': COLORS['primary'],           # Housing - Cyan
     'Groceries': COLORS['secondary'],    # Food - Pink
-    'Tuition Fees': COLORS['error'],     # Education - Red
-    'Mobile Recharge': COLORS['accent1'], # Utilities - Lavender
+    'Tuition': COLORS['error'],          # Education - Red
+    'Mobile_Recharge': COLORS['accent1'], # Utilities - Lavender
     'Travel': COLORS['accent3'],         # Transportation - Mint
     'Gas': COLORS['accent4'],            # Fuel - Amber
     'Restaurants': COLORS['accent2'],    # Dining - Light Blue
-    'Miscellaneous': COLORS['info'],     # Other - Blue
     'Shopping': COLORS['secondary'],     # Retail - Pink
-    'Car Insurance': COLORS['success'],  # Insurance - Green
-    'Car Rental': COLORS['accent2'],     # Rental - Light Blue
-    'DPS': COLORS['warning'],            # Government - Orange
-    'Driving School': COLORS['secondary'], # Education - Pink
-    'Flight': COLORS['accent1'],         # Travel - Purple
-    'HP Laptop/Related': COLORS['primary'], # Technology - Cyan
-    'Deposit': COLORS['success']         # Financial - Green
+    'Car_Insurance': COLORS['success'],  # Insurance - Green
+    'Books': COLORS['accent1'],          # Education - Lavender
+    'Utilities': COLORS['info'],         # Utilities - Blue
 }
 
 # Color-blind safe palette for accessibility

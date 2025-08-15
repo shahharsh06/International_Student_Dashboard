@@ -133,19 +133,14 @@ class DataProcessor:
             'Rent': 'Housing',
             'Groceries': 'Food',
             'Restaurants': 'Food',
-            'Tuition Fees': 'Education',
-            'Mobile Recharge': 'Utilities',
+            'Tuition': 'Education',
+            'Mobile_Recharge': 'Utilities',
             'Gas': 'Transportation',
             'Travel': 'Transportation',
-            'Car Insurance': 'Transportation',
-            'Car Rental': 'Transportation',
-            'DPS': 'Transportation',
-            'Driving School': 'Transportation',
-            'Flight': 'Transportation',
+            'Car_Insurance': 'Transportation',
             'Shopping': 'Personal',
-            'HP Laptop/Related': 'Education',
-            'Deposit': 'Housing',
-            'Miscellaneous': 'Other'
+            'Books': 'Education',
+            'Utilities': 'Utilities'
         }
         
         return categories.map(lambda x: category_mapping.get(x, 'Other'))

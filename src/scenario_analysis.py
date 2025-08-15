@@ -99,8 +99,8 @@ class ScenarioAnalyzer:
             scenario_configs.append(('combined', 'Combined (Rent +10%, Groceries -15%, Salary +20%)', {'Rent': 0.10, 'Groceries': -0.15}, 0.20))
         
         # Scenario 5: Tuition increase (if tuition category exists)
-        if 'Tuition Fees' in available_categories:
-            scenario_configs.append(('tuition_increase', 'Tuition Increase (15%)', {'Tuition Fees': 0.15}, 0.0))
+        if 'Tuition' in available_categories:
+            scenario_configs.append(('tuition_increase', 'Tuition Increase (15%)', {'Tuition': 0.15}, 0.0))
         
         # Scenario 6: Gas price increase (if gas category exists)
         if 'Gas' in available_categories:

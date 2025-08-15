@@ -138,7 +138,7 @@ class OverviewTab(BaseTab):
             net_amount = total_income - total_expenses
             
             # Calculate average monthly expenses (excluding tuition)
-            monthly_expenses = expenses[expenses['Category'] != 'Tuition Fees'].copy()
+            monthly_expenses = expenses[expenses['Category'] != 'Tuition'].copy()
             avg_monthly_expenses = monthly_expenses.groupby(
                 monthly_expenses['Date'].dt.to_period('M')
             )['Amount'].sum().mean()
@@ -202,23 +202,23 @@ class OverviewTab(BaseTab):
                 )
             
             # Tuition information
-            tuition_total = expenses[expenses['Category'] == 'Tuition Fees']['Amount'].sum()
+            tuition_total = expenses[expenses['Category'] == 'Tuition']['Amount'].sum()
             if tuition_total > 0:
                 st.markdown("### Tuition Information")
                 col1, col2 = st.columns(2)
                 
                 with col1:
                     self._render_metric_card(
-                        title="Total Tuition Fees",
+                        title="Total Tuition",
                         value=format_currency(tuition_total),
                         subtitle="Education Investment",
                         value_color="#8b5cf6",  # Purple for education
-                        help="Total tuition fees paid"
+                        help="Total tuition paid"
                     )
                 
                 with col2:
                     tuition_months = expenses[
-                        expenses['Category'] == 'Tuition Fees'
+                        expenses['Category'] == 'Tuition'
                     ]['Date'].dt.to_period('M').nunique()
                     avg_tuition_per_semester = tuition_total / tuition_months if tuition_months > 0 else 0
                     
