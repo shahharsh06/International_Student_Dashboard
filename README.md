@@ -9,7 +9,7 @@
 
 ## 🚀 Live Demo
 
-**[🌐 View Live Dashboard](https://your-streamlit-app-url.streamlit.app/)**
+**[🌐 View Live Dashboard](https://international-student-dashboard.streamlit.app/)**
 
 ## 📋 Table of Contents
 
@@ -92,7 +92,7 @@ The **International Student Financial Dashboard** is a comprehensive, profession
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/International_Student_Dashboard.git
+git clone https://github.com/shahharsh06/International_Student_Dashboard.git
 cd International_Student_Dashboard
 
 # Create virtual environment
@@ -281,21 +281,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Plotly Team**: For beautiful interactive visualizations
 - **Open Source Contributors**: For continuous improvements
 
-## 📞 Support & Contact
-
-- **Documentation**: [Wiki](https://github.com/yourusername/International_Student_Dashboard/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/International_Student_Dashboard/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/International_Student_Dashboard/discussions)
-- **Email**: your.email@example.com
-
 ---
 
 <div align="center">
 
 **Built with ❤️ for International Students Worldwide**
-
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/International_Student_Dashboard?style=social)](https://github.com/yourusername/International_Student_Dashboard)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/International_Student_Dashboard?style=social)](https://github.com/yourusername/International_Student_Dashboard)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/International_Student_Dashboard)](https://github.com/yourusername/International_Student_Dashboard/issues)
 
 </div> 

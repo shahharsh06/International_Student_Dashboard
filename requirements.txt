@@ -1,40 +1,26 @@
 # =============================================================================
-# INTERNATIONAL STUDENT FINANCIAL DASHBOARD
-# STREAMLIT CLOUD OPTIMIZED REQUIREMENTS
+# STREAMLIT CLOUD ULTRA-FAST DEPLOYMENT
+# Minimal requirements for fastest possible deployment
 # =============================================================================
 
-# Core Streamlit and Web Framework
+# Core Streamlit (keep pinned for stability)
 streamlit==1.32.0
-streamlit-aggrid==0.3.4
 
-# Data Processing & Analytics (Pre-compiled wheels for faster deployment)
+# Essential data processing (use ranges for pre-compiled wheels)
 pandas>=2.0.0,<3.0.0
 numpy>=1.24.0,<2.0.0
-scipy>=1.10.0,<2.0.0
 
-# Visualization & Charts
+# Core visualization
 plotly>=5.15.0,<6.0.0
-matplotlib>=3.6.0,<4.0.0
-seaborn>=0.12.0,<1.0.0
 
-# Data Export & Handling
-openpyxl>=3.0.0,<4.0.0
+# Essential utilities
 python-dateutil>=2.8.0,<3.0.0
 pytz>=2023.0,<2025.0
 
-# Performance & Caching
-joblib>=1.2.0,<2.0.0
-
-# Date and Time Handling
-arrow>=1.2.0,<2.0.0
-
-# Configuration Management
-pyyaml>=6.0.0,<7.0.0
-
 # =============================================================================
-# DEPLOYMENT OPTIMIZATION NOTES
+# DEPLOYMENT STRATEGY
 # =============================================================================
-# Using version ranges instead of pinned versions for faster deployment
-# Streamlit Cloud will use pre-compiled wheels when possible
-# This reduces deployment time from 15+ minutes to 2-5 minutes
+# This file uses minimal dependencies to achieve fastest deployment
+# Additional features can be added after initial deployment
+# Expected deployment time: 1-3 minutes instead of 15+ minutes
 # ============================================================================= 
