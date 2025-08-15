@@ -1,0 +1,61 @@
+City,Category,Average_Cost,Cost_Index,Notes
+College Station,Rent,1200.00,100.0,Base city for comparison
+College Station,Groceries,90.00,100.0,Base city for comparison
+College Station,Transportation,50.00,100.0,Base city for comparison
+College Station,Utilities,90.00,100.0,Base city for comparison
+Austin,Rent,1800.00,150.0,State capital, higher costs
+Austin,Groceries,110.00,122.2,More expensive food options
+Austin,Transportation,65.00,130.0,Higher gas prices
+Austin,Utilities,95.00,105.6,Slightly higher utilities
+Houston,Rent,1600.00,133.3,Major city, moderate costs
+Houston,Groceries,95.00,105.6,Similar to base city
+Houston,Transportation,55.00,110.0,Moderate transportation costs
+Houston,Utilities,88.00,97.8,Lower utility costs
+Dallas,Rent,1700.00,141.7,Major city, high costs
+Dallas,Groceries,100.00,111.1,Expensive grocery options
+Dallas,Transportation,60.00,120.0,High transportation costs
+Dallas,Utilities,92.00,102.2,Moderate utility costs
+San Antonio,Rent,1400.00,116.7,Moderate city costs
+San Antonio,Groceries,88.00,97.8,Similar to base city
+San Antonio,Transportation,48.00,96.0,Lower transportation costs
+San Antonio,Utilities,85.00,94.4,Lower utility costs
+New York,Rent,3500.00,291.7,Very expensive city
+New York,Groceries,150.00,166.7,High grocery costs
+New York,Transportation,120.00,240.0,Expensive transportation
+New York,Utilities,150.00,166.7,High utility costs
+Los Angeles,Rent,2800.00,233.3,Expensive west coast city
+Los Angeles,Groceries,130.00,144.4,High grocery costs
+Los Angeles,Transportation,90.00,180.0,Expensive transportation
+Los Angeles,Utilities,120.00,133.3,High utility costs
+Chicago,Rent,2200.00,183.3,Major city, high costs
+Chicago,Groceries,115.00,127.8,Expensive grocery options
+Chicago,Transportation,80.00,160.0,High transportation costs
+Chicago,Utilities,110.00,122.2,High utility costs
+San Francisco,Rent,4000.00,333.3,Most expensive city
+San Francisco,Groceries,180.00,200.0,Highest grocery costs
+San Francisco,Transportation,150.00,300.0,Most expensive transportation
+San Francisco,Utilities,180.00,200.0,Highest utility costs
+Seattle,Rent,2500.00,208.3,Expensive tech hub
+Seattle,Groceries,125.00,138.9,High grocery costs
+Seattle,Transportation,70.00,140.0,Moderate transportation
+Seattle,Utilities,100.00,111.1,Moderate utility costs
+Boston,Rent,3000.00,250.0,Expensive east coast city
+Boston,Groceries,140.00,155.6,High grocery costs
+Boston,Transportation,100.00,200.0,Expensive transportation
+Boston,Utilities,130.00,144.4,High utility costs
+Washington DC,Rent,3200.00,266.7,Expensive capital city
+Washington DC,Groceries,145.00,161.1,High grocery costs
+Washington DC,Transportation,110.00,220.0,Expensive transportation
+Washington DC,Utilities,140.00,155.6,High utility costs
+Atlanta,Rent,1800.00,150.0,Major city, moderate-high costs
+Atlanta,Groceries,105.00,116.7,Moderate grocery costs
+Atlanta,Transportation,60.00,120.0,Moderate transportation
+Atlanta,Utilities,95.00,105.6,Moderate utility costs
+Denver,Rent,2000.00,166.7,Popular mountain city
+Denver,Groceries,110.00,122.2,Moderate-high grocery costs
+Denver,Transportation,65.00,130.0,Moderate transportation
+Denver,Utilities,100.00,111.1,Moderate utility costs
+Phoenix,Rent,1600.00,133.3,Desert city, moderate costs
+Phoenix,Groceries,95.00,105.6,Moderate grocery costs
+Phoenix,Transportation,55.00,110.0,Moderate transportation
+Phoenix,Utilities,90.00,100.0,Similar utility costs
