@@ -1,214 +1,214 @@
 Date,Category,Amount,PaymentType,Description
-2023-01-15,Rent,1200.00,Credit Card,Monthly rent payment
-2023-01-20,Groceries,85.50,Debit Card,Weekly grocery shopping
-2023-01-25,Tuition,2500.00,Bank Transfer,Semester tuition payment
-2023-01-28,MobileRecharge,45.00,Credit Card,Phone plan renewal
-2023-02-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-02-05,Groceries,92.30,Debit Card,Weekly grocery shopping
-2023-02-10,Restaurants,65.00,Credit Card,Dinner with friends
-2023-02-15,Gas,45.50,Debit Card,Car fuel
-2023-02-20,Shopping,120.00,Credit Card,Clothing and essentials
-2023-02-25,Tuition,2500.00,Bank Transfer,Semester tuition payment
-2023-03-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-03-05,Groceries,78.90,Debit Card,Weekly grocery shopping
-2023-03-10,Travel,150.00,Credit Card,Weekend trip
-2023-03-15,Utilities,85.00,Bank Transfer,Electricity and water
-2023-03-20,Books,95.00,Credit Card,Textbooks for courses
-2023-03-25,Restaurants,45.00,Debit Card,Lunch on campus
-2023-04-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-04-05,Groceries,88.75,Debit Card,Weekly grocery shopping
-2023-04-10,CarInsurance,180.00,Bank Transfer,Monthly car insurance
-2023-04-15,Gas,52.00,Debit Card,Car fuel
-2023-04-20,Shopping,75.00,Credit Card,Home supplies
-2023-04-25,Restaurants,55.00,Debit Card,Dinner with classmates
-2023-05-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-05-05,Groceries,91.20,Debit Card,Weekly grocery shopping
-2023-05-10,Utilities,90.00,Bank Transfer,Electricity and water
-2023-05-15,Books,120.00,Credit Card,Additional course materials
-2023-05-20,Travel,200.00,Credit Card,Spring break trip
-2023-05-25,Gas,48.50,Debit Card,Car fuel
-2023-06-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-06-05,Groceries,86.40,Debit Card,Weekly grocery shopping
-2023-06-10,Restaurants,70.00,Credit Card,End of semester celebration
-2023-06-15,Shopping,110.00,Debit Card,Summer clothing
-2023-06-20,Utilities,88.00,Bank Transfer,Electricity and water
-2023-06-25,Gas,50.00,Credit Card,Car fuel
-2023-07-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-07-05,Groceries,89.60,Debit Card,Weekly grocery shopping
-2023-07-10,Travel,180.00,Credit Card,Summer vacation
-2023-07-15,Restaurants,60.00,Debit Card,Lunch with family
-2023-07-20,Books,85.00,Credit Card,Summer reading materials
-2023-07-25,Gas,47.00,Debit Card,Car fuel
-2023-08-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-08-05,Groceries,94.20,Debit Card,Weekly grocery shopping
-2023-08-10,Utilities,92.00,Bank Transfer,Electricity and water
-2023-08-15,Shopping,130.00,Credit Card,Back to school supplies
-2023-08-20,Restaurants,75.00,Debit Card,Dinner with roommates
-2023-08-25,Gas,49.50,Credit Card,Car fuel
-2023-09-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-09-05,Groceries,87.80,Debit Card,Weekly grocery shopping
-2023-09-10,Tuition,2500.00,Bank Transfer,Fall semester tuition
-2023-09-15,Books,110.00,Credit Card,Textbooks for new courses
-2023-09-20,Restaurants,50.00,Debit Card,Lunch on campus
-2023-09-25,Gas,46.00,Credit Card,Car fuel
-2023-10-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-10-05,Groceries,90.45,Debit Card,Weekly grocery shopping
-2023-10-10,Utilities,89.00,Bank Transfer,Electricity and water
-2023-10-15,Shopping,95.00,Credit Card,Home decorations
-2023-10-20,Travel,160.00,Debit Card,Weekend getaway
-2023-10-25,Gas,48.00,Credit Card,Car fuel
-2023-11-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-11-05,Groceries,93.10,Debit Card,Weekly grocery shopping
-2023-11-10,Restaurants,80.00,Credit Card,Thanksgiving dinner
-2023-11-15,Books,100.00,Debit Card,Course materials
-2023-11-20,Utilities,91.00,Bank Transfer,Electricity and water
-2023-11-25,Gas,51.00,Credit Card,Car fuel
-2023-12-01,Rent,1200.00,Credit Card,Monthly rent payment
-2023-12-05,Groceries,96.80,Debit Card,Weekly grocery shopping
-2023-12-10,Shopping,150.00,Credit Card,Holiday gifts
-2023-12-15,Travel,220.00,Debit Card,Winter break trip
-2023-12-20,Restaurants,90.00,Credit Card,Holiday celebration
-2023-12-25,Utilities,93.00,Bank Transfer,Electricity and water
-2023-12-30,Gas,49.00,Credit Card,Car fuel
-2024-01-15,Rent,1200.00,Credit Card,Monthly rent payment
-2024-01-20,Groceries,87.25,Debit Card,Weekly grocery shopping
-2024-01-25,Tuition,2500.00,Bank Transfer,Spring semester tuition
-2024-01-28,MobileRecharge,45.00,Credit Card,Phone plan renewal
-2024-02-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-02-05,Groceries,89.80,Debit Card,Weekly grocery shopping
-2024-02-10,Restaurants,68.00,Credit Card,Dinner with friends
-2024-02-15,Gas,47.25,Debit Card,Car fuel
-2024-02-20,Shopping,125.00,Credit Card,Clothing and essentials
-2024-02-25,Tuition,2500.00,Bank Transfer,Semester tuition payment
-2024-03-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-03-05,Groceries,82.15,Debit Card,Weekly grocery shopping
-2024-03-10,Travel,155.00,Credit Card,Spring break trip
-2024-03-15,Utilities,87.50,Bank Transfer,Electricity and water
-2024-03-20,Books,98.00,Credit Card,Textbooks for courses
-2024-03-25,Restaurants,48.00,Debit Card,Lunch on campus
-2024-04-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-04-05,Groceries,91.45,Debit Card,Weekly grocery shopping
-2024-04-10,CarInsurance,180.00,Bank Transfer,Monthly car insurance
-2024-04-15,Gas,53.50,Debit Card,Car fuel
-2024-04-20,Shopping,78.00,Credit Card,Home supplies
-2024-04-25,Restaurants,58.00,Debit Card,Dinner with classmates
-2024-05-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-05-05,Groceries,93.80,Debit Card,Weekly grocery shopping
-2024-05-10,Utilities,91.50,Bank Transfer,Electricity and water
-2024-05-15,Books,125.00,Credit Card,Additional course materials
-2024-05-20,Travel,195.00,Credit Card,Spring break trip
-2024-05-25,Gas,49.75,Debit Card,Car fuel
-2024-06-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-06-05,Groceries,88.90,Debit Card,Weekly grocery shopping
-2024-06-10,Restaurants,72.00,Credit Card,End of semester celebration
-2024-06-15,Shopping,115.00,Debit Card,Summer clothing
-2024-06-20,Utilities,89.50,Bank Transfer,Electricity and water
-2024-06-25,Gas,51.25,Debit Card,Car fuel
-2024-07-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-07-05,Groceries,92.40,Debit Card,Weekly grocery shopping
-2024-07-10,Travel,185.00,Credit Card,Summer vacation
-2024-07-15,Restaurants,64.00,Debit Card,Lunch with family
-2024-07-20,Books,88.00,Credit Card,Summer reading materials
-2024-07-25,Gas,48.75,Debit Card,Car fuel
-2024-08-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-08-05,Groceries,96.60,Debit Card,Weekly grocery shopping
-2024-08-10,Utilities,93.50,Bank Transfer,Electricity and water
-2024-08-15,Shopping,135.00,Credit Card,Back to school supplies
-2024-08-20,Restaurants,78.00,Debit Card,Dinner with roommates
-2024-08-25,Gas,50.25,Debit Card,Car fuel
-2024-09-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-09-05,Groceries,89.40,Debit Card,Weekly grocery shopping
-2024-09-10,Tuition,2500.00,Bank Transfer,Fall semester tuition
-2024-09-15,Books,114.00,Credit Card,Textbooks for new courses
-2024-09-20,Restaurants,54.00,Debit Card,Lunch on campus
-2024-09-25,Gas,48.50,Debit Card,Car fuel
-2024-10-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-10-05,Groceries,93.85,Debit Card,Weekly grocery shopping
-2024-10-10,Utilities,91.75,Bank Transfer,Electricity and water
-2024-10-15,Shopping,100.00,Credit Card,Home decorations
-2024-10-20,Travel,170.00,Debit Card,Weekend getaway
-2024-10-25,Gas,49.75,Debit Card,Car fuel
-2024-11-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-11-05,Groceries,97.30,Debit Card,Weekly grocery shopping
-2024-11-10,Restaurants,85.00,Credit Card,Thanksgiving dinner
-2024-11-15,Books,105.00,Debit Card,Course materials
-2024-11-20,Utilities,93.75,Bank Transfer,Electricity and water
-2024-11-25,Gas,52.75,Debit Card,Car fuel
-2024-12-01,Rent,1200.00,Credit Card,Monthly rent payment
-2024-12-05,Groceries,101.60,Debit Card,Weekly grocery shopping
-2024-12-10,Shopping,160.00,Credit Card,Holiday gifts
-2024-12-15,Travel,230.00,Debit Card,Winter break trip
-2024-12-20,Restaurants,94.00,Credit Card,Holiday celebration
-2024-12-25,Utilities,95.25,Bank Transfer,Electricity and water
-2024-12-30,Gas,51.50,Debit Card,Car fuel
-2025-01-15,Rent,1200.00,Credit Card,Monthly rent payment
-2025-01-20,Groceries,88.90,Debit Card,Weekly grocery shopping
-2025-01-25,Tuition,2500.00,Bank Transfer,Spring semester tuition
-2025-01-28,MobileRecharge,45.00,Credit Card,Phone plan renewal
-2025-02-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-02-05,Groceries,91.45,Debit Card,Weekly grocery shopping
-2025-02-10,Restaurants,70.00,Credit Card,Dinner with friends
-2025-02-15,Gas,48.75,Debit Card,Car fuel
-2025-02-20,Shopping,128.00,Credit Card,Clothing and essentials
-2025-02-25,Tuition,2500.00,Bank Transfer,Semester tuition payment
-2025-03-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-03-05,Groceries,85.60,Debit Card,Weekly grocery shopping
-2025-03-10,Travel,160.00,Credit Card,Spring break trip
-2025-03-15,Utilities,88.75,Bank Transfer,Electricity and water
-2025-03-20,Books,100.00,Credit Card,Textbooks for courses
-2025-03-25,Restaurants,50.00,Debit Card,Lunch on campus
-2025-04-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-04-05,Groceries,93.25,Debit Card,Weekly grocery shopping
-2025-04-10,CarInsurance,180.00,Bank Transfer,Monthly car insurance
-2025-04-15,Gas,54.00,Debit Card,Car fuel
-2025-04-20,Shopping,80.00,Credit Card,Home supplies
-2025-04-25,Restaurants,60.00,Debit Card,Dinner with classmates
-2025-05-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-05-05,Groceries,95.40,Debit Card,Weekly grocery shopping
-2025-05-10,Utilities,92.75,Bank Transfer,Electricity and water
-2025-05-15,Books,127.00,Credit Card,Additional course materials
-2025-05-20,Travel,200.00,Credit Card,Spring break trip
-2025-05-25,Gas,50.50,Debit Card,Car fuel
-2025-06-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-06-05,Groceries,90.80,Debit Card,Weekly grocery shopping
-2025-06-10,Restaurants,74.00,Credit Card,End of semester celebration
-2025-06-15,Shopping,118.00,Debit Card,Summer clothing
-2025-06-20,Utilities,90.25,Bank Transfer,Electricity and water
-2025-06-25,Gas,51.75,Debit Card,Car fuel
-2025-07-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-07-05,Groceries,94.80,Debit Card,Weekly grocery shopping
-2025-07-10,Travel,190.00,Credit Card,Summer vacation
-2025-07-15,Restaurants,64.00,Debit Card,Lunch with family
-2025-07-20,Books,90.00,Credit Card,Summer reading materials
-2025-07-25,Gas,49.25,Debit Card,Car fuel
-2025-08-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-08-05,Groceries,98.40,Debit Card,Weekly grocery shopping
-2025-08-10,Utilities,94.75,Bank Transfer,Electricity and water
-2025-08-15,Shopping,138.00,Credit Card,Back to school supplies
-2025-08-20,Restaurants,80.00,Debit Card,Dinner with roommates
-2025-08-25,Gas,51.00,Debit Card,Car fuel
-2025-09-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-09-05,Groceries,91.20,Debit Card,Weekly grocery shopping
-2025-09-10,Tuition,2500.00,Bank Transfer,Fall semester tuition
-2025-09-15,Books,114.00,Credit Card,Textbooks for new courses
-2025-09-20,Restaurants,54.00,Debit Card,Lunch on campus
-2025-09-25,Gas,48.50,Debit Card,Car fuel
-2025-10-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-10-05,Groceries,93.85,Debit Card,Weekly grocery shopping
-2025-10-10,Utilities,91.75,Bank Transfer,Electricity and water
-2025-10-15,Shopping,100.00,Credit Card,Home decorations
-2025-10-20,Travel,170.00,Debit Card,Weekend getaway
-2025-10-25,Gas,49.75,Debit Card,Car fuel
-2025-11-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-11-05,Groceries,97.30,Debit Card,Weekly grocery shopping
-2025-11-10,Restaurants,85.00,Credit Card,Thanksgiving dinner
-2025-11-15,Books,105.00,Debit Card,Course materials
-2025-11-20,Utilities,93.75,Bank Transfer,Electricity and water
-2025-11-25,Gas,52.75,Debit Card,Car fuel
-2025-12-01,Rent,1200.00,Credit Card,Monthly rent payment
-2025-12-05,Groceries,101.60,Debit Card,Weekly grocery shopping
-2025-12-10,Shopping,160.00,Credit Card,Holiday gifts
-2025-12-15,Travel,230.00,Debit Card,Winter break trip
-2025-12-20,Restaurants,94.00,Credit Card,Holiday celebration
-2025-12-25,Utilities,95.25,Bank Transfer,Electricity and water
-2025-12-30,Gas,51.50,Debit Card,Car fuel
+2023-01-15,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-01-20,Groceries,85.50,Debit_Card,Weekly grocery shopping
+2023-01-25,Tuition,2500.00,Bank_Transfer,Semester tuition payment
+2023-01-28,Mobile_Recharge,45.00,Credit_Card,Phone plan renewal
+2023-02-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-02-05,Groceries,92.30,Debit_Card,Weekly grocery shopping
+2023-02-10,Restaurants,65.00,Credit_Card,Dinner with friends
+2023-02-15,Gas,45.50,Debit_Card,Car fuel
+2023-02-20,Shopping,120.00,Credit_Card,Clothing and essentials
+2023-02-25,Tuition,2500.00,Bank_Transfer,Semester tuition payment
+2023-03-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-03-05,Groceries,78.90,Debit_Card,Weekly grocery shopping
+2023-03-10,Travel,150.00,Credit_Card,Weekend trip
+2023-03-15,Utilities,85.00,Bank_Transfer,Electricity and water
+2023-03-20,Books,95.00,Credit_Card,Textbooks for courses
+2023-03-25,Restaurants,45.00,Debit_Card,Lunch on campus
+2023-04-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-04-05,Groceries,88.75,Debit_Card,Weekly grocery shopping
+2023-04-10,Car_Insurance,180.00,Bank_Transfer,Monthly car insurance
+2023-04-15,Gas,52.00,Debit_Card,Car fuel
+2023-04-20,Shopping,75.00,Credit_Card,Home supplies
+2023-04-25,Restaurants,55.00,Debit_Card,Dinner with classmates
+2023-05-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-05-05,Groceries,91.20,Debit_Card,Weekly grocery shopping
+2023-05-10,Utilities,90.00,Bank_Transfer,Electricity and water
+2023-05-15,Books,120.00,Credit_Card,Additional course materials
+2023-05-20,Travel,200.00,Credit_Card,Spring break trip
+2023-05-25,Gas,48.50,Debit_Card,Car fuel
+2023-06-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-06-05,Groceries,86.40,Debit_Card,Weekly grocery shopping
+2023-06-10,Restaurants,70.00,Credit_Card,End of semester celebration
+2023-06-15,Shopping,110.00,Debit_Card,Summer clothing
+2023-06-20,Utilities,88.00,Bank_Transfer,Electricity and water
+2023-06-25,Gas,50.00,Credit_Card,Car fuel
+2023-07-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-07-05,Groceries,89.60,Debit_Card,Weekly grocery shopping
+2023-07-10,Travel,180.00,Credit_Card,Summer vacation
+2023-07-15,Restaurants,60.00,Debit_Card,Lunch with family
+2023-07-20,Books,85.00,Credit_Card,Summer reading materials
+2023-07-25,Gas,47.00,Debit_Card,Car fuel
+2023-08-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-08-05,Groceries,94.20,Debit_Card,Weekly grocery shopping
+2023-08-10,Utilities,92.00,Bank_Transfer,Electricity and water
+2023-08-15,Shopping,130.00,Credit_Card,Back to school supplies
+2023-08-20,Restaurants,75.00,Debit_Card,Dinner with roommates
+2023-08-25,Gas,49.50,Credit_Card,Car fuel
+2023-09-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-09-05,Groceries,87.80,Debit_Card,Weekly grocery shopping
+2023-09-10,Tuition,2500.00,Bank_Transfer,Fall semester tuition
+2023-09-15,Books,110.00,Credit_Card,Textbooks for new courses
+2023-09-20,Restaurants,50.00,Debit_Card,Lunch on campus
+2023-09-25,Gas,46.00,Credit_Card,Car fuel
+2023-10-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-10-05,Groceries,90.45,Debit_Card,Weekly grocery shopping
+2023-10-10,Utilities,89.00,Bank_Transfer,Electricity and water
+2023-10-15,Shopping,95.00,Credit_Card,Home decorations
+2023-10-20,Travel,160.00,Debit_Card,Weekend getaway
+2023-10-25,Gas,48.00,Credit_Card,Car fuel
+2023-11-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-11-05,Groceries,93.10,Debit_Card,Weekly grocery shopping
+2023-11-10,Restaurants,80.00,Credit_Card,Thanksgiving dinner
+2023-11-15,Books,100.00,Debit_Card,Course materials
+2023-11-20,Utilities,91.00,Bank_Transfer,Electricity and water
+2023-11-25,Gas,51.00,Credit_Card,Car fuel
+2023-12-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2023-12-05,Groceries,96.80,Debit_Card,Weekly grocery shopping
+2023-12-10,Shopping,150.00,Credit_Card,Holiday gifts
+2023-12-15,Travel,220.00,Debit_Card,Winter break trip
+2023-12-20,Restaurants,90.00,Credit_Card,Holiday celebration
+2023-12-25,Utilities,93.00,Bank_Transfer,Electricity and water
+2023-12-30,Gas,49.00,Credit_Card,Car fuel
+2024-01-15,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-01-20,Groceries,87.25,Debit_Card,Weekly grocery shopping
+2024-01-25,Tuition,2500.00,Bank_Transfer,Spring semester tuition
+2024-01-28,Mobile_Recharge,45.00,Credit_Card,Phone plan renewal
+2024-02-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-02-05,Groceries,89.80,Debit_Card,Weekly grocery shopping
+2024-02-10,Restaurants,68.00,Credit_Card,Dinner with friends
+2024-02-15,Gas,47.25,Debit_Card,Car fuel
+2024-02-20,Shopping,125.00,Credit_Card,Clothing and essentials
+2024-02-25,Tuition,2500.00,Bank_Transfer,Semester tuition payment
+2024-03-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-03-05,Groceries,82.15,Debit_Card,Weekly grocery shopping
+2024-03-10,Travel,155.00,Credit_Card,Spring break trip
+2024-03-15,Utilities,87.50,Bank_Transfer,Electricity and water
+2024-03-20,Books,98.00,Credit_Card,Textbooks for courses
+2024-03-25,Restaurants,48.00,Debit_Card,Lunch on campus
+2024-04-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-04-05,Groceries,91.45,Debit_Card,Weekly grocery shopping
+2024-04-10,Car_Insurance,180.00,Bank_Transfer,Monthly car insurance
+2024-04-15,Gas,53.50,Debit_Card,Car fuel
+2024-04-20,Shopping,78.00,Credit_Card,Home supplies
+2024-04-25,Restaurants,58.00,Debit_Card,Dinner with classmates
+2024-05-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-05-05,Groceries,93.80,Debit_Card,Weekly grocery shopping
+2024-05-10,Utilities,91.50,Bank_Transfer,Electricity and water
+2024-05-15,Books,125.00,Credit_Card,Additional course materials
+2024-05-20,Travel,195.00,Credit_Card,Spring break trip
+2024-05-25,Gas,49.75,Debit_Card,Car fuel
+2024-06-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-06-05,Groceries,88.90,Debit_Card,Weekly grocery shopping
+2024-06-10,Restaurants,72.00,Credit_Card,End of semester celebration
+2024-06-15,Shopping,115.00,Debit_Card,Summer clothing
+2024-06-20,Utilities,89.50,Bank_Transfer,Electricity and water
+2024-06-25,Gas,51.25,Debit_Card,Car fuel
+2024-07-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-07-05,Groceries,92.40,Debit_Card,Weekly grocery shopping
+2024-07-10,Travel,185.00,Credit_Card,Summer vacation
+2024-07-15,Restaurants,64.00,Debit_Card,Lunch with family
+2024-07-20,Books,88.00,Credit_Card,Summer reading materials
+2024-07-25,Gas,48.75,Debit_Card,Car fuel
+2024-08-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-08-05,Groceries,96.60,Debit_Card,Weekly grocery shopping
+2024-08-10,Utilities,93.50,Bank_Transfer,Electricity and water
+2024-08-15,Shopping,135.00,Credit_Card,Back to school supplies
+2024-08-20,Restaurants,78.00,Debit_Card,Dinner with roommates
+2024-08-25,Gas,50.25,Debit_Card,Car fuel
+2024-09-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-09-05,Groceries,89.40,Debit_Card,Weekly grocery shopping
+2024-09-10,Tuition,2500.00,Bank_Transfer,Fall semester tuition
+2024-09-15,Books,114.00,Credit_Card,Textbooks for new courses
+2024-09-20,Restaurants,54.00,Debit_Card,Lunch on campus
+2024-09-25,Gas,48.50,Debit_Card,Car fuel
+2024-10-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-10-05,Groceries,93.85,Debit_Card,Weekly grocery shopping
+2024-10-10,Utilities,91.75,Bank_Transfer,Electricity and water
+2024-10-15,Shopping,100.00,Credit_Card,Home decorations
+2024-10-20,Travel,170.00,Debit_Card,Weekend getaway
+2024-10-25,Gas,49.75,Debit_Card,Car fuel
+2024-11-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-11-05,Groceries,97.30,Debit_Card,Weekly grocery shopping
+2024-11-10,Restaurants,85.00,Credit_Card,Thanksgiving dinner
+2024-11-15,Books,105.00,Debit_Card,Course materials
+2024-11-20,Utilities,93.75,Bank_Transfer,Electricity and water
+2024-11-25,Gas,52.75,Debit_Card,Car fuel
+2024-12-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2024-12-05,Groceries,101.60,Debit_Card,Weekly grocery shopping
+2024-12-10,Shopping,160.00,Credit_Card,Holiday gifts
+2024-12-15,Travel,230.00,Debit_Card,Winter break trip
+2024-12-20,Restaurants,94.00,Credit_Card,Holiday celebration
+2024-12-25,Utilities,95.25,Bank_Transfer,Electricity and water
+2024-12-30,Gas,51.50,Debit_Card,Car fuel
+2025-01-15,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-01-20,Groceries,88.90,Debit_Card,Weekly grocery shopping
+2025-01-25,Tuition,2500.00,Bank_Transfer,Spring semester tuition
+2025-01-28,Mobile_Recharge,45.00,Credit_Card,Phone plan renewal
+2025-02-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-02-05,Groceries,91.45,Debit_Card,Weekly grocery shopping
+2025-02-10,Restaurants,70.00,Credit_Card,Dinner with friends
+2025-02-15,Gas,48.75,Debit_Card,Car fuel
+2025-02-20,Shopping,128.00,Credit_Card,Clothing and essentials
+2025-02-25,Tuition,2500.00,Bank_Transfer,Semester tuition payment
+2025-03-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-03-05,Groceries,85.60,Debit_Card,Weekly grocery shopping
+2025-03-10,Travel,160.00,Credit_Card,Spring break trip
+2025-03-15,Utilities,88.75,Bank_Transfer,Electricity and water
+2025-03-20,Books,100.00,Credit_Card,Textbooks for courses
+2025-03-25,Restaurants,50.00,Debit_Card,Lunch on campus
+2025-04-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-04-05,Groceries,93.25,Debit_Card,Weekly grocery shopping
+2025-04-10,Car_Insurance,180.00,Bank_Transfer,Monthly car insurance
+2025-04-15,Gas,54.00,Debit_Card,Car fuel
+2025-04-20,Shopping,80.00,Credit_Card,Home supplies
+2025-04-25,Restaurants,60.00,Debit_Card,Dinner with classmates
+2025-05-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-05-05,Groceries,95.40,Debit_Card,Weekly grocery shopping
+2025-05-10,Utilities,92.75,Bank_Transfer,Electricity and water
+2025-05-15,Books,127.00,Credit_Card,Additional course materials
+2025-05-20,Travel,200.00,Credit_Card,Spring break trip
+2025-05-25,Gas,50.50,Debit_Card,Car fuel
+2025-06-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-06-05,Groceries,90.80,Debit_Card,Weekly grocery shopping
+2025-06-10,Restaurants,74.00,Credit_Card,End of semester celebration
+2025-06-15,Shopping,118.00,Debit_Card,Summer clothing
+2025-06-20,Utilities,90.25,Bank_Transfer,Electricity and water
+2025-06-25,Gas,51.75,Debit_Card,Car fuel
+2025-07-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-07-05,Groceries,94.80,Debit_Card,Weekly grocery shopping
+2025-07-10,Travel,190.00,Credit_Card,Summer vacation
+2025-07-15,Restaurants,64.00,Debit_Card,Lunch with family
+2025-07-20,Books,90.00,Credit_Card,Summer reading materials
+2025-07-25,Gas,49.25,Debit_Card,Car fuel
+2025-08-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-08-05,Groceries,98.40,Debit_Card,Weekly grocery shopping
+2025-08-10,Utilities,94.75,Bank_Transfer,Electricity and water
+2025-08-15,Shopping,138.00,Credit_Card,Back to school supplies
+2025-08-20,Restaurants,80.00,Debit_Card,Dinner with roommates
+2025-08-25,Gas,51.00,Debit_Card,Car fuel
+2025-09-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-09-05,Groceries,91.20,Debit_Card,Weekly grocery shopping
+2025-09-10,Tuition,2500.00,Bank_Transfer,Fall semester tuition
+2025-09-15,Books,114.00,Credit_Card,Textbooks for new courses
+2025-09-20,Restaurants,54.00,Debit_Card,Lunch on campus
+2025-09-25,Gas,48.50,Debit_Card,Car fuel
+2025-10-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-10-05,Groceries,93.85,Debit_Card,Weekly grocery shopping
+2025-10-10,Utilities,91.75,Bank_Transfer,Electricity and water
+2025-10-15,Shopping,100.00,Credit_Card,Home decorations
+2025-10-20,Travel,170.00,Debit_Card,Weekend getaway
+2025-10-25,Gas,49.75,Debit_Card,Car fuel
+2025-11-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-11-05,Groceries,97.30,Debit_Card,Weekly grocery shopping
+2025-11-10,Restaurants,85.00,Credit_Card,Thanksgiving dinner
+2025-11-15,Books,105.00,Debit_Card,Course materials
+2025-11-20,Utilities,93.75,Bank_Transfer,Electricity and water
+2025-11-25,Gas,52.75,Debit_Card,Car fuel
+2025-12-01,Rent,1200.00,Credit_Card,Monthly rent payment
+2025-12-05,Groceries,101.60,Debit_Card,Weekly grocery shopping
+2025-12-10,Shopping,160.00,Credit_Card,Holiday gifts
+2025-12-15,Travel,230.00,Debit_Card,Winter break trip
+2025-12-20,Restaurants,94.00,Credit_Card,Holiday celebration
+2025-12-25,Utilities,95.25,Bank_Transfer,Electricity and water
+2025-12-30,Gas,51.50,Debit_Card,Car fuel

@@ -1,61 +1,61 @@
 Role,City,Experience_Level,Base_Salary,Bonus,Total_Compensation,Industry
-Software Engineer,College Station,Entry,75000,10000,85000,Technology
-Software Engineer,Austin,Entry,85000,12000,97000,Technology
-Software Engineer,Houston,Entry,80000,11000,91000,Energy
-Software Engineer,Dallas,Entry,82000,11500,93500,Finance
-Software Engineer,New York,Entry,95000,15000,110000,Finance
-Software Engineer,San Francisco,Entry,120000,20000,140000,Technology
-Data Scientist,College Station,Entry,70000,8000,78000,Academia
-Data Scientist,Austin,Entry,90000,12000,102000,Technology
-Data Scientist,Houston,Entry,75000,9000,84000,Energy
-Data Scientist,Dallas,Entry,78000,10000,88000,Finance
-Data Scientist,New York,Entry,100000,15000,115000,Finance
-Data Scientist,San Francisco,Entry,130000,20000,150000,Technology
-Machine Learning Engineer,College Station,Entry,75000,8000,83000,Academia
-Machine Learning Engineer,Austin,Entry,95000,12000,107000,Technology
-Machine Learning Engineer,Houston,Entry,80000,9000,89000,Energy
-Machine Learning Engineer,Dallas,Entry,82000,10000,92000,Finance
-Machine Learning Engineer,New York,Entry,105000,15000,120000,Finance
-Machine Learning Engineer,San Francisco,Entry,140000,20000,160000,Technology
-AI Researcher,College Station,Entry,65000,5000,70000,Academia
-AI Researcher,Austin,Entry,90000,10000,100000,Technology
-AI Researcher,Houston,Entry,70000,6000,76000,Energy
-AI Researcher,Dallas,Entry,75000,7000,82000,Finance
-AI Researcher,New York,Entry,95000,12000,107000,Finance
-AI Researcher,San Francisco,Entry,125000,15000,140000,Technology
-DevOps Engineer,College Station,Entry,70000,8000,78000,Technology
-DevOps Engineer,Austin,Entry,85000,11000,96000,Technology
-DevOps Engineer,Houston,Entry,75000,9000,84000,Energy
-DevOps Engineer,Dallas,Entry,78000,10000,88000,Finance
-DevOps Engineer,New York,Entry,90000,13000,103000,Finance
-DevOps Engineer,San Francisco,Entry,115000,18000,133000,Technology
-Product Manager,College Station,Entry,65000,8000,73000,Technology
-Product Manager,Austin,Entry,80000,12000,92000,Technology
-Product Manager,Houston,Entry,70000,9000,79000,Energy
-Product Manager,Dallas,Entry,75000,10000,85000,Finance
-Product Manager,New York,Entry,95000,15000,110000,Finance
-Product Manager,San Francisco,Entry,120000,20000,140000,Technology
-Software Engineer,College Station,Mid,85000,12000,97000,Technology
-Software Engineer,Austin,Mid,95000,15000,110000,Technology
-Software Engineer,Houston,Mid,90000,13000,103000,Energy
-Software Engineer,Dallas,Mid,92000,14000,106000,Finance
-Software Engineer,New York,Mid,110000,20000,130000,Finance
-Software Engineer,San Francisco,Mid,140000,25000,165000,Technology
-Data Scientist,College Station,Mid,80000,10000,90000,Academia
-Data Scientist,Austin,Mid,100000,15000,115000,Technology
-Data Scientist,Houston,Mid,85000,11000,96000,Energy
-Data Scientist,Dallas,Mid,88000,12000,100000,Finance
-Data Scientist,New York,Mid,115000,20000,135000,Finance
-Data Scientist,San Francisco,Mid,150000,25000,175000,Technology
-Software Engineer,College Station,Senior,95000,15000,110000,Technology
-Software Engineer,Austin,Senior,110000,20000,130000,Technology
-Software Engineer,Houston,Senior,100000,18000,118000,Energy
-Software Engineer,Dallas,Senior,105000,19000,124000,Finance
-Software Engineer,New York,Senior,130000,25000,155000,Finance
-Software Engineer,San Francisco,Senior,170000,30000,200000,Technology
-Data Scientist,College Station,Senior,90000,12000,102000,Academia
-Data Scientist,Austin,Senior,115000,20000,135000,Technology
-Data Scientist,Houston,Senior,95000,15000,110000,Energy
-Data Scientist,Dallas,Senior,100000,16000,116000,Finance
-Data Scientist,New York,Senior,135000,25000,160000,Finance
-Data Scientist,San Francisco,Senior,170000,30000,200000,Technology
+Software_Engineer,College_Station,Entry,75000,10000,85000,Technology
+Software_Engineer,Austin,Entry,85000,12000,97000,Technology
+Software_Engineer,Houston,Entry,80000,11000,91000,Energy
+Software_Engineer,Dallas,Entry,82000,11500,93500,Finance
+Software_Engineer,New_York,Entry,95000,15000,110000,Finance
+Software_Engineer,San_Francisco,Entry,120000,20000,140000,Technology
+Data_Scientist,College_Station,Entry,70000,8000,78000,Academia
+Data_Scientist,Austin,Entry,90000,12000,102000,Technology
+Data_Scientist,Houston,Entry,75000,9000,84000,Energy
+Data_Scientist,Dallas,Entry,78000,10000,88000,Finance
+Data_Scientist,New_York,Entry,100000,15000,115000,Finance
+Data_Scientist,San_Francisco,Entry,130000,20000,150000,Technology
+Machine_Learning_Engineer,College_Station,Entry,75000,8000,83000,Academia
+Machine_Learning_Engineer,Austin,Entry,95000,12000,107000,Technology
+Machine_Learning_Engineer,Houston,Entry,80000,9000,89000,Energy
+Machine_Learning_Engineer,Dallas,Entry,82000,10000,92000,Finance
+Machine_Learning_Engineer,New_York,Entry,105000,15000,120000,Finance
+Machine_Learning_Engineer,San_Francisco,Entry,140000,20000,160000,Technology
+AI_Researcher,College_Station,Entry,65000,5000,70000,Academia
+AI_Researcher,Austin,Entry,90000,10000,100000,Technology
+AI_Researcher,Houston,Entry,70000,6000,76000,Energy
+AI_Researcher,Dallas,Entry,75000,7000,82000,Finance
+AI_Researcher,New_York,Entry,95000,12000,107000,Finance
+AI_Researcher,San_Francisco,Entry,125000,15000,140000,Technology
+DevOps_Engineer,College_Station,Entry,70000,8000,78000,Technology
+DevOps_Engineer,Austin,Entry,85000,11000,96000,Technology
+DevOps_Engineer,Houston,Entry,75000,9000,84000,Energy
+DevOps_Engineer,Dallas,Entry,78000,10000,88000,Finance
+DevOps_Engineer,New_York,Entry,90000,13000,103000,Finance
+DevOps_Engineer,San_Francisco,Entry,115000,18000,133000,Technology
+Product_Manager,College_Station,Entry,65000,8000,73000,Technology
+Product_Manager,Austin,Entry,80000,12000,92000,Technology
+Product_Manager,Houston,Entry,70000,9000,79000,Energy
+Product_Manager,Dallas,Entry,75000,10000,85000,Finance
+Product_Manager,New_York,Entry,95000,15000,110000,Finance
+Product_Manager,San_Francisco,Entry,120000,20000,140000,Technology
+Software_Engineer,College_Station,Mid,85000,12000,97000,Technology
+Software_Engineer,Austin,Mid,95000,15000,110000,Technology
+Software_Engineer,Houston,Mid,90000,13000,103000,Energy
+Software_Engineer,Dallas,Mid,92000,14000,106000,Finance
+Software_Engineer,New_York,Mid,110000,20000,130000,Finance
+Software_Engineer,San_Francisco,Mid,140000,25000,165000,Technology
+Data_Scientist,College_Station,Mid,80000,10000,90000,Academia
+Data_Scientist,Austin,Mid,100000,15000,115000,Technology
+Data_Scientist,Houston,Mid,85000,11000,96000,Energy
+Data_Scientist,Dallas,Mid,88000,12000,100000,Finance
+Data_Scientist,New_York,Mid,115000,20000,135000,Finance
+Data_Scientist,San_Francisco,Mid,150000,25000,175000,Technology
+Software_Engineer,College_Station,Senior,95000,15000,110000,Technology
+Software_Engineer,Austin,Senior,110000,20000,130000,Technology
+Software_Engineer,Houston,Senior,100000,18000,118000,Energy
+Software_Engineer,Dallas,Senior,105000,19000,124000,Finance
+Software_Engineer,New_York,Senior,130000,25000,155000,Finance
+Software_Engineer,San_Francisco,Senior,170000,30000,200000,Technology
+Data_Scientist,College_Station,Senior,90000,12000,102000,Academia
+Data_Scientist,Austin,Senior,115000,20000,135000,Technology
+Data_Scientist,Houston,Senior,95000,15000,110000,Energy
+Data_Scientist,Dallas,Senior,100000,16000,116000,Finance
+Data_Scientist,New_York,Senior,135000,25000,160000,Finance
+Data_Scientist,San_Francisco,Senior,170000,30000,200000,Technology
