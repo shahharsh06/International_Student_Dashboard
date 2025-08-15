@@ -1,0 +1,149 @@
+# =============================================================================
+# PROFESSIONAL PYTHON PROJECT .GITIGNORE
+# International Student Financial Dashboard
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv.bak/
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/config.toml.local
+
+# Data Files (Exclude sensitive data)
+data/*.csv
+data/*.xlsx
+data/*.json
+*.csv
+*.xlsx
+*.json
+!data/sample_data.csv
+!data/README.md
+
+# Logs
+*.log
+logs/
+log/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+
+# Documentation
+docs/_build/
+docs/build/
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Cache
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# Local Configuration
+config/local_settings.py
+config/secrets.py
+*.local
+
+# Backup Files
+*.orig
+*.rej
+*.old
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Compiled Files
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.dylib
+
+# Profiling
+*.prof
+*.lprof
+
+# Coverage Reports
+htmlcov/
+.coverage
+coverage.xml 

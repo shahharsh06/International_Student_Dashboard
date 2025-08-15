@@ -1,0 +1,40 @@
+# =============================================================================
+# STREAMLIT PRODUCTION CONFIGURATION
+# International Student Financial Dashboard
+# =============================================================================
+
+[theme]
+# Professional dark theme
+primaryColor = "#00d4ff"
+backgroundColor = "#0a0e1a"
+secondaryBackgroundColor = "#1a1f2e"
+textColor = "#ffffff"
+font = "sans serif"
+
+[server]
+# Performance optimization
+maxUploadSize = 200
+enableCORS = true
+enableXsrfProtection = true
+
+# Security settings
+fileWatcherType = "none"
+headless = true
+
+[browser]
+# User experience
+gatherUsageStats = false
+serverAddress = "localhost"
+serverPort = 8501
+
+[client]
+# Performance settings
+caching = true
+displayEnabled = true
+showErrorDetails = false
+
+[runner]
+# Execution optimization
+magicEnabled = true
+installTracer = false
+fixMatplotlib = true 
