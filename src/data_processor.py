@@ -115,7 +115,6 @@ class DataProcessor:
         
         # Handle missing values
         self.salary_df['Amount'] = self.salary_df['Amount'].fillna(0)
-        self.salary_df['Category'] = self.salary_df['Category'].fillna('Part-Time')
         
         # Validate amounts
         self.salary_df = self.salary_df[self.salary_df['Amount'] >= 0]
