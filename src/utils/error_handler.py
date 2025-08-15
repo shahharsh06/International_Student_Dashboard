@@ -177,7 +177,7 @@ class ErrorHandler:
         summary = self.get_error_summary()
         
         if summary["total_errors"] == 0:
-            st.success("✅ No errors logged")
+            st.success("No errors logged")
             return
         
         st.markdown("### Error Summary")

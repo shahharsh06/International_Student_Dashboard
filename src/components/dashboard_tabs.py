@@ -21,10 +21,10 @@ from config.design_system import (
 class BaseTab:
     """Base class for all dashboard tabs with common functionality"""
     
-    def __init__(self, error_handler: ErrorHandler, cache_manager: CacheManager):
-        """Initialize base tab"""
-        self.error_handler = error_handler
-        self.cache_manager = cache_manager
+    def __init__(self, error_handler: ErrorHandler = None, cache_manager: CacheManager = None):
+        """Initialize base tab with optional dependencies"""
+        self.error_handler = error_handler or ErrorHandler()
+        self.cache_manager = cache_manager or CacheManager()
     
     def render(self):
         """Render the tab content - must be implemented by subclasses"""
@@ -40,17 +40,65 @@ class BaseTab:
                 str(e),
                 context={"tab": self.__class__.__name__}
             )
+    
+    def _render_section_header(self, title: str, subtitle: str = None, level: int = 2):
+        """Render consistent section headers with unified design system"""
+        header_tag = f"h{level}"
+        
+        if subtitle:
+            st.markdown(f"""
+            <div style="
+                margin: {SPACING['8']} 0 {SPACING['6']} 0;
+                padding: {SPACING['4']} 0;
+            ">
+                <{header_tag} style="
+                    color: {COLORS['text_primary']};
+                    font-size: {FONT_SIZES['3xl']};
+                    font-weight: {FONT_WEIGHTS['bold']};
+                    margin: 0;
+                    font-family: {FONT_FAMILY};
+                    display: flex;
+                    align-items: center;
+                    gap: {SPACING['3']};
+                ">
+                    {title}
+                </{header_tag}>
+                <p style="
+                    color: {COLORS['text_secondary']};
+                    font-size: {FONT_SIZES['base']};
+                    font-weight: {FONT_WEIGHTS['normal']};
+                    margin: {SPACING['2']} 0 0 0;
+                    font-family: {FONT_FAMILY};
+                ">{subtitle}</p>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+            <div style="
+                margin: {SPACING['8']} 0 {SPACING['6']} 0;
+                padding: {SPACING['4']} 0;
+            ">
+                <{header_tag} style="
+                    color: {COLORS['text_primary']};
+                    font-size: {FONT_SIZES['3xl']};
+                    font-weight: {FONT_WEIGHTS['bold']};
+                    margin: 0;
+                    font-family: {FONT_FAMILY};
+                ">
+                    {title}
+                </{header_tag}>
+            </div>
+            """, unsafe_allow_html=True)
 
 class OverviewTab(BaseTab):
     """Overview tab with key financial metrics and trends"""
     
     def __init__(self, processor, data, viz):
         """Initialize overview tab"""
+        super().__init__()
         self.processor = processor
         self.data = data
         self.viz = viz
-        self.error_handler = ErrorHandler()
-        self.cache_manager = CacheManager()
     
     def render(self):
         """Render overview tab content"""
@@ -95,39 +143,7 @@ class OverviewTab(BaseTab):
     
     def _render_key_metrics(self):
         """Render key financial metrics with standardized styling"""
-        # Enhanced section header with unified design system
-        st.markdown(f"""
-        <div style="
-            margin: {SPACING['8']} 0 {SPACING['6']} 0;
-            padding: {SPACING['4']} 0;
-        ">
-            <h2 style="
-                color: {COLORS['text_primary']};
-                font-size: {FONT_SIZES['3xl']};
-                font-weight: {FONT_WEIGHTS['bold']};
-                margin: 0;
-                font-family: {FONT_FAMILY};
-                display: flex;
-                align-items: center;
-                gap: {SPACING['3']};
-            ">
-                <span style="
-                    background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['accent2']} 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                "></span>
-                Key Financial Metrics
-            </h2>
-            <p style="
-                color: {COLORS['text_secondary']};
-                font-size: {FONT_SIZES['base']};
-                font-weight: {FONT_WEIGHTS['normal']};
-                margin: {SPACING['2']} 0 0 0;
-                font-family: {FONT_FAMILY};
-            ">Essential financial indicators for informed decision-making</p>
-        </div>
-        """, unsafe_allow_html=True)
+        self._render_section_header("Key Financial Metrics", "Essential financial indicators for informed decision-making")
         
         try:
             # Calculate key metrics
@@ -152,7 +168,7 @@ class OverviewTab(BaseTab):
                     title="Total Expenses",
                     value=format_currency(total_expenses),
                     subtitle="Total Outflow",
-                    value_color="#ef4444",  # Red for expenses
+                    value_color=COLORS['error'],  # Red for expenses
                     help="Sum of all recorded expenses"
                 )
             
@@ -161,7 +177,7 @@ class OverviewTab(BaseTab):
                     title="Total Income",
                     value=format_currency(total_income),
                     subtitle="Total Inflow",
-                    value_color="#10b981",  # Green for income
+                    value_color=COLORS['success'],  # Green for income
                     help="Sum of all recorded income"
                 )
             
@@ -169,15 +185,15 @@ class OverviewTab(BaseTab):
                 # Enhanced Net Amount metric with relevant information
                 if net_amount > 0:
                     # Positive (Green)
-                    net_amount_color = "#10b981"  # COLORS['success']
+                    net_amount_color = COLORS['success']
                     net_amount_subtitle = "Income exceeds expenses"
                 elif net_amount < 0:
                     # Negative (Red)
-                    net_amount_color = "#ef4444"  # COLORS['error']
+                    net_amount_color = COLORS['error']
                     net_amount_subtitle = "Expenses exceed income"
                 else:
                     # Neutral (Yellow/Orange)
-                    net_amount_color = "#f59e0b"  # COLORS['warning']
+                    net_amount_color = COLORS['warning']
                     net_amount_subtitle = "Income equals expenses"
                 
                 # Format net amount without minus sign for display
@@ -189,18 +205,18 @@ class OverviewTab(BaseTab):
                     value=display_value,
                     subtitle=net_amount_subtitle,
                     value_color=net_amount_color,
-                    subtitle_color="#94a3b8",
+                    subtitle_color=COLORS['text_muted'],
                     help="Income minus expenses"
                 )
             
-            with col4:
-                self._render_metric_card(
-                    title="Avg Monthly Expenses",
-                    value=format_currency(avg_monthly_expenses),
-                    subtitle="Monthly Average",
-                    value_color="#f59e0b",  # Yellow/Orange for averages
-                    help="Average monthly spending (excluding tuition)"
-                )
+                with col4:
+                    self._render_metric_card(
+                        title="Avg Monthly Expenses",
+                        value=format_currency(avg_monthly_expenses),
+                        subtitle="Monthly Average",
+                        value_color=COLORS['warning'],  # Yellow/Orange for averages
+                        help="Average monthly spending (excluding tuition)"
+                    )
             
             # Tuition information
             tuition_total = expenses[expenses['Category'] == 'Tuition']['Amount'].sum()
@@ -213,7 +229,7 @@ class OverviewTab(BaseTab):
                         title="Total Tuition",
                         value=format_currency(tuition_total),
                         subtitle="Education Investment",
-                        value_color="#8b5cf6",  # Purple for education
+                        value_color=COLORS['accent1'],  # Purple for education
                         help="Total tuition paid"
                     )
                 
@@ -227,7 +243,7 @@ class OverviewTab(BaseTab):
                         title="Avg Tuition per Semester",
                         value=format_currency(avg_tuition_per_semester),
                         subtitle="Per Semester",
-                        value_color="#a78bfa",  # Light purple for semester average
+                        value_color=COLORS['accent1'],  # Light purple for semester average
                         help="Average tuition per semester"
                     )
                 
@@ -239,7 +255,7 @@ class OverviewTab(BaseTab):
     def _render_metric_card(self, title, value, subtitle, value_color, subtitle_color=None, help=None):
         """Render a standardized metric card with premium styling"""
         if subtitle_color is None:
-            subtitle_color = "#94a3b8"  # Default muted color
+            subtitle_color = COLORS['text_muted']  # Default muted color
         
         # Create a subtle background color based on the value color
         bg_color = f"rgba({int(value_color[1:3], 16)}, {int(value_color[3:5], 16)}, {int(value_color[5:7], 16)}, 0.1)"
@@ -267,7 +283,7 @@ class OverviewTab(BaseTab):
                 font-family: {FONT_FAMILY};
             ">
                 {title}
-                {f'<span style="color: {COLORS["text_primary"]}; font-size: {FONT_SIZES["xs"]}; opacity: 0.8;" title="{help}">ⓘ</span>' if help else ''}
+                {f'<span style="color: {COLORS["text_primary"]}; font-size: {FONT_SIZES["xs"]}; opacity: 0.8;" title="{help}">Info</span>' if help else ''}
             </div>
             <div style="
                 color: {value_color};
@@ -295,38 +311,7 @@ class OverviewTab(BaseTab):
     
     def _render_financial_trends(self):
         """Render financial trends visualization"""
-        st.markdown(f"""
-        <div style="
-            margin: {SPACING['8']} 0 {SPACING['6']} 0;
-            padding: {SPACING['4']} 0;
-        ">
-            <h3 style="
-                color: {COLORS['text_primary']};
-                font-size: {FONT_SIZES['2xl']};
-                font-weight: {FONT_WEIGHTS['bold']};
-                margin: 0;
-                font-family: {FONT_FAMILY};
-                display: flex;
-                align-items: center;
-                gap: {SPACING['3']};
-            ">
-                <span style="
-                    background: linear-gradient(135deg, {COLORS['secondary']} 0%, {COLORS['accent1']} 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                "></span>
-                Financial Trends
-            </h3>
-            <p style="
-                color: {COLORS['text_secondary']};
-                font-size: {FONT_SIZES['base']};
-                font-weight: {FONT_WEIGHTS['normal']};
-                margin: {SPACING['2']} 0 0 0;
-                font-family: {FONT_FAMILY};
-            ">Track your financial patterns and identify opportunities</p>
-        </div>
-        """, unsafe_allow_html=True)
+        self._render_section_header("Financial Trends", "Track your financial patterns and identify opportunities", level=3)
         
         try:
             # Get monthly summary data
@@ -342,38 +327,7 @@ class OverviewTab(BaseTab):
     
     def _render_category_breakdown(self):
         """Render expense category breakdown"""
-        st.markdown(f"""
-        <div style="
-            margin: {SPACING['8']} 0 {SPACING['6']} 0;
-            padding: {SPACING['4']} 0;
-        ">
-            <h3 style="
-                color: {COLORS['text_primary']};
-                font-size: {FONT_SIZES['2xl']};
-                font-weight: {FONT_WEIGHTS['bold']};
-                margin: 0;
-                font-family: {FONT_FAMILY};
-                display: flex;
-                align-items: center;
-                gap: {SPACING['3']};
-            ">
-                <span style="
-                    background: linear-gradient(135deg, {COLORS['accent1']} 0%, {COLORS['accent3']} 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                "></span>
-                Expense Categories
-            </h3>
-            <p style="
-                color: {COLORS['text_secondary']};
-                font-size: {FONT_SIZES['base']};
-                font-weight: {FONT_WEIGHTS['normal']};
-                margin: {SPACING['2']} 0 0 0;
-                font-family: {FONT_FAMILY};
-            ">Analyze your spending patterns by category</p>
-        </div>
-        """, unsafe_allow_html=True)
+        self._render_section_header("Expense Categories", "Analyze your spending patterns by category", level=3)
         
         try:
             expenses = self.data['expenses']
@@ -407,11 +361,10 @@ class ExpensesTab(BaseTab):
     
     def __init__(self, processor, data, viz):
         """Initialize expenses tab"""
+        super().__init__()
         self.processor = processor
         self.data = data
         self.viz = viz
-        self.error_handler = ErrorHandler()
-        self.cache_manager = CacheManager()
     
     def render(self):
         """Render expenses tab content"""
@@ -643,45 +596,13 @@ class ScenarioAnalysisTab(BaseTab):
     
     def __init__(self, scenario_analyzer, viz):
         """Initialize scenario analysis tab"""
+        super().__init__()
         self.scenario_analyzer = scenario_analyzer
         self.viz = viz
-        self.error_handler = ErrorHandler()
-        self.cache_manager = CacheManager()
     
     def render(self):
         """Render scenario analysis tab content"""
-        st.markdown(f"""
-        <div style="
-            margin: {SPACING['8']} 0 {SPACING['6']} 0;
-            padding: {SPACING['4']} 0;
-        ">
-            <h2 style="
-                color: {COLORS['text_primary']};
-                font-size: {FONT_SIZES['3xl']};
-                font-weight: {FONT_WEIGHTS['bold']};
-                margin: 0;
-                font-family: {FONT_FAMILY};
-                display: flex;
-                align-items: center;
-                gap: {SPACING['3']};
-            ">
-                <span style="
-                    background: linear-gradient(135deg, {COLORS['warning']} 0%, {COLORS['accent4']} 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                "></span>
-                Scenario Analysis
-            </h2>
-            <p style="
-                color: {COLORS['text_secondary']};
-                font-size: {FONT_SIZES['base']};
-                font-weight: {FONT_WEIGHTS['normal']};
-                margin: {SPACING['2']} 0 0 0;
-                font-family: {FONT_FAMILY};
-            ">Explore "what-if" scenarios to optimize your financial planning</p>
-        </div>
-        """, unsafe_allow_html=True)
+        self._render_section_header("Scenario Analysis", 'Explore "what-if" scenarios to optimize your financial planning')
         
         # Preset scenarios
         self._render_preset_scenarios()
@@ -777,7 +698,7 @@ class ScenarioAnalysisTab(BaseTab):
                     
                     # Performance summary
                     total_time = time.time() - start_time
-                    st.info(f"⚡ **Performance Summary:** Scenarios: {scenario_time:.2f}s | Charts: {chart_time:.2f}s | Total: {total_time:.2f}s")
+                    st.info(f"**Performance Summary:** Scenarios: {scenario_time:.2f}s | Charts: {chart_time:.2f}s | Total: {total_time:.2f}s")
                 
                 except Exception as e:
                     self.error_handler.display_error("Scenario Analysis Error", str(e))
@@ -876,11 +797,10 @@ class ROIAnalysisTab(BaseTab):
     
     def __init__(self, processor, data, viz):
         """Initialize ROI analysis tab"""
+        super().__init__()
         self.processor = processor
         self.data = data
         self.viz = viz
-        self.error_handler = ErrorHandler()
-        self.cache_manager = CacheManager()
     
     def render(self):
         """Render ROI analysis tab content"""
@@ -947,7 +867,7 @@ class ROIAnalysisTab(BaseTab):
         st.markdown("### ROI Analysis Dashboard")
         
         st.info("""
-        💡 **Analysis Context:** This ROI analysis uses real industry salary data from your dataset. 
+        **Analysis Context:** This ROI analysis uses real industry salary data from your dataset. 
         The break-even timeline accounts for job search periods and realistic savings rates.
         """)
         
@@ -1007,10 +927,9 @@ class StoryTab(BaseTab):
     
     def __init__(self, viz, data):
         """Initialize story tab"""
+        super().__init__()
         self.viz = viz
         self.data = data
-        self.error_handler = ErrorHandler()
-        self.cache_manager = CacheManager()
     
     def render(self):
         """Render story tab content"""

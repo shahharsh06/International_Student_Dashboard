@@ -64,10 +64,10 @@ class DashboardLayout:
     def render_info_card(self, title: str, content: str, card_type: str = "info"):
         """Render information card with premium styling"""
         icon_map = {
-            "info": "ℹ",
-            "success": "✓", 
-            "warning": "⚠",
-            "error": "✗"
+            "info": "Info",
+            "success": "Success", 
+            "warning": "Warning",
+            "error": "Error"
         }
         
         icon = icon_map.get(card_type, "ℹ")

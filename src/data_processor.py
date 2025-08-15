@@ -106,7 +106,7 @@ class DataProcessor:
         # Categorize expenses
         self.expenses_df['CategoryGroup'] = self._categorize_expenses(self.expenses_df['Category'])
         
-        print(f"✅ Cleaned expenses data: {len(self.expenses_df)} records")
+        print(f"Cleaned expenses data: {len(self.expenses_df)} records")
     
     def _clean_salary_data(self) -> None:
         """Clean and process salary data"""
@@ -124,7 +124,7 @@ class DataProcessor:
         self.salary_df['Month'] = self.salary_df['Date'].dt.month
         self.salary_df['YearMonth'] = self.salary_df['Date'].dt.to_period('M').astype(str)
         
-        print(f"✅ Cleaned salary data: {len(self.salary_df)} records")
+        print(f"Cleaned salary data: {len(self.salary_df)} records")
     
     def _categorize_expenses(self, categories: pd.Series) -> pd.Series:
         """Categorize expenses into broader groups"""
@@ -440,22 +440,22 @@ def main():
         
         # Test monthly summary
         monthly_summary = processor.get_monthly_summary()
-        print(f"✅ Monthly summary created: {len(monthly_summary)} months")
+        print(f"Monthly summary created: {len(monthly_summary)} months")
         
         # Test category breakdown
         category_breakdown = processor.get_category_breakdown()
-        print(f"✅ Category breakdown created: {len(category_breakdown)} categories")
+        print(f"Category breakdown created: {len(category_breakdown)} categories")
         
         # Test anomaly detection
         anomalies = processor.get_anomalies()
-        print(f"✅ Anomaly detection completed: {len(anomalies)} anomalies found")
+        print(f"Anomaly detection completed: {len(anomalies)} anomalies found")
         
         # Test ROI analysis
         roi_analysis = processor.get_roi_analysis()
-        print(f"✅ ROI analysis completed: Break-even in {roi_analysis['break_even_years']:.1f} years")
+        print(f"ROI analysis completed: Break-even in {roi_analysis['break_even_years']:.1f} years")
         
     except Exception as e:
-        print(f"❌ Error in data processing: {str(e)}")
+        print(f"Error in data processing: {str(e)}")
 
 
 if __name__ == "__main__":

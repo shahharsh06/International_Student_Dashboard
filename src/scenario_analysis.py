@@ -487,9 +487,9 @@ class ScenarioAnalyzer:
         try:
             comparison_df = self.compare_scenarios()
             comparison_df.to_csv(filename, index=False)
-            print(f"✅ Scenario results exported to {filename}")
+            print(f"Scenario results exported to {filename}")
         except Exception as e:
-            print(f"❌ Error exporting scenario results: {str(e)}")
+            print(f"Error exporting scenario results: {str(e)}")
 
 
 def main():
@@ -522,7 +522,7 @@ def main():
         
         # Run preset scenarios
         scenarios = analyzer.run_preset_scenarios()
-        print(f"✅ Generated {len(scenarios)} preset scenarios")
+        print(f"Generated {len(scenarios)} preset scenarios")
         
         # Create custom scenario
         custom_scenario = analyzer.create_custom_scenario(
@@ -530,24 +530,24 @@ def main():
             {'Rent': 0.05, 'Groceries': -0.10},
             salary_adjustment=0.15
         )
-        print("✅ Created custom scenario")
+        print("Created custom scenario")
         
         # Compare scenarios
         comparison = analyzer.compare_scenarios()
-        print(f"✅ Scenario comparison created: {len(comparison)} scenarios")
+        print(f"Scenario comparison created: {len(comparison)} scenarios")
         
         # Get best/worst scenarios
         best = analyzer.get_best_scenario()
         worst = analyzer.get_worst_scenario()
-        print(f"✅ Best scenario: {best}")
-        print(f"✅ Worst scenario: {worst}")
+        print(f"Best scenario: {best}")
+        print(f"Worst scenario: {worst}")
         
         # Create charts
         charts = analyzer.create_scenario_chart()
-        print(f"✅ Created {len(charts)} scenario charts")
+        print(f"Created {len(charts)} scenario charts")
         
     except Exception as e:
-        print(f"❌ Error in scenario analysis: {str(e)}")
+        print(f"Error in scenario analysis: {str(e)}")
 
 
 if __name__ == "__main__":
