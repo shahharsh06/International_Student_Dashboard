@@ -971,18 +971,18 @@ class StoryTab(BaseTab):
         
         # Academic information in a clean card layout with premium styling
         st.markdown(f"""
-        <div style="background: linear-gradient(135deg, #1a1f2e 0%, #0a0e1a 100%); 
-                    padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem; 
-                    border: 1px solid #334155; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
-            <h4 style="margin-bottom: 1rem; color: #00d4ff; font-weight: 600;">Academic Information</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #cbd5e1;">
+        <div style="background: linear-gradient(135deg, {COLORS['surface']} 0%, {COLORS['background']} 100%); 
+                    padding: {SPACING['6']}; border-radius: {BORDER_RADIUS['lg']}; margin-bottom: {SPACING['4']}; 
+                    border: 1px solid {COLORS['border']}; box-shadow: {SHADOWS['lg']};">
+            <h4 style="margin-bottom: {SPACING['4']}; color: {COLORS['primary']}; font-weight: {FONT_WEIGHTS['semibold']};">Academic Information</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: {SPACING['4']}; color: {COLORS['text_secondary']};">
                 <div>
-                    <p><strong style="color: #ffffff;">Program:</strong> {PERSONA['program']}</p>
-                    <p><strong style="color: #ffffff;">University:</strong> {PERSONA['university']}</p>
+                    <p><strong style="color: {COLORS['text_primary']};">Program:</strong> {PERSONA['program']}</p>
+                    <p><strong style="color: {COLORS['text_primary']};">University:</strong> {PERSONA['university']}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #ffffff;">Expected Graduation:</strong> {PERSONA['graduation_year']}</p>
-                    <p><strong style="color: #ffffff;">Current Status:</strong> <span style="color: #86efac;">Former/Alumni Student</span></p>
+                    <p><strong style="color: {COLORS['text_primary']};">Expected Graduation:</strong> {PERSONA['graduation_year']}</p>
+                    <p><strong style="color: {COLORS['text_primary']};">Current Status:</strong> <span style="color: {COLORS['success']};">Former/Alumni Student</span></p>
                 </div>
             </div>
         </div>
@@ -1009,18 +1009,18 @@ class StoryTab(BaseTab):
         
         # Personal information in a clean card layout with premium styling
         st.markdown(f"""
-        <div style="background: linear-gradient(135deg, #1a1f2e 0%, #0a0e1a 100%); 
-                    padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem; 
-                    border: 1px solid #334155; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
-            <h4 style="margin-bottom: 1rem; color: #ff6b9d; font-weight: 600;">Personal Information</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #cbd5e1;">
+        <div style="background: linear-gradient(135deg, {COLORS['surface']} 0%, {COLORS['background']} 100%); 
+                    padding: {SPACING['6']}; border-radius: {BORDER_RADIUS['lg']}; margin-bottom: {SPACING['4']}; 
+                    border: 1px solid {COLORS['border']}; box-shadow: {SHADOWS['lg']};">
+            <h4 style="margin-bottom: {SPACING['4']}; color: {COLORS['secondary']}; font-weight: {FONT_WEIGHTS['semibold']};">Personal Information</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: {SPACING['4']}; color: {COLORS['text_secondary']};">
                 <div>
-                    <p><strong style="color: #ffffff;">Hometown:</strong> {PERSONA['hometown']}</p>
-                    <p><strong style="color: #ffffff;">Nationality:</strong> Indian</p>
+                    <p><strong style="color: {COLORS['text_primary']};">Hometown:</strong> {PERSONA['hometown']}</p>
+                    <p><strong style="color: {COLORS['text_primary']};">Nationality:</strong> Indian</p>
                 </div>
                 <div>
-                    <p><strong style="color: #ffffff;">Languages:</strong> English, Hindi, Gujarati</p>
-                    <p><strong style="color: #ffffff;">Interests:</strong> Technology, Innovation, Global Development</p>
+                    <p><strong style="color: {COLORS['text_primary']};">Languages:</strong> English, Hindi, Gujarati</p>
+                    <p><strong style="color: {COLORS['text_primary']};">Interests:</strong> Technology, Innovation, Global Development</p>
                 </div>
             </div>
         </div>
@@ -1097,53 +1097,53 @@ class StoryTab(BaseTab):
                 
                 # Display health score in a prominent card with premium styling
                 st.markdown(f"""
-                <div style="background: linear-gradient(135deg, #00d4ff 0%, #ff6b9d 100%); 
-                            padding: 1.5rem; border-radius: 1rem; margin: 1rem 0; color: white; text-align: center;
-                            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3); border: 1px solid #334155;">
-                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem;">Overall Financial Health Score</h3>
-                    <h2 style="margin: 0; font-size: 2.5rem; font-weight: bold;">{health_score:.1f}/100</h2>
+                <div style="background: linear-gradient(135deg, {COLORS['primary']} 0%, {COLORS['secondary']} 100%); 
+                            padding: {SPACING['6']}; border-radius: {BORDER_RADIUS['xl']}; margin: {SPACING['4']} 0; color: {COLORS['text_primary']}; text-align: center;
+                            box-shadow: {SHADOWS['xl']}; border: 1px solid {COLORS['border']};">
+                    <h3 style="margin: 0 0 {SPACING['2']} 0; font-size: {FONT_SIZES['lg']};">Overall Financial Health Score</h3>
+                    <h2 style="margin: 0; font-size: {FONT_SIZES['5xl']}; font-weight: {FONT_WEIGHTS['bold']};">{health_score:.1f}/100</h2>
                 </div>
                 """, unsafe_allow_html=True)
                 
                 # Health indicators with premium styling
                 if health_score >= 80:
                     st.markdown("""
-                    <div style="background: linear-gradient(135deg, #1a1f2e 0%, #0a0e1a 100%); 
-                                color: #10b981; padding: 1rem; border-radius: 0.5rem; 
-                                border-left: 4px solid #10b981; margin: 1rem 0; border: 1px solid #334155;
-                                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
-                        <h4 style="margin: 0; color: #ffffff;">Excellent Financial Health</h4>
-                        <p style="margin: 0.5rem 0 0 0; color: #cbd5e1;">Your financial management is outstanding!</p>
+                    <div style="background: linear-gradient(135deg, {COLORS['surface']} 0%, {COLORS['background']} 100%); 
+                                color: {COLORS['success']}; padding: {SPACING['4']}; border-radius: {BORDER_RADIUS['md']}; 
+                                border-left: 4px solid {COLORS['success']}; margin: {SPACING['4']} 0; border: 1px solid {COLORS['border']};
+                                box-shadow: {SHADOWS['lg']};">
+                        <h4 style="margin: 0; color: {COLORS['text_primary']};">Excellent Financial Health</h4>
+                        <p style="margin: {SPACING['2']} 0 0 0; color: {COLORS['text_secondary']};">Your financial management is outstanding!</p>
                     </div>
                     """, unsafe_allow_html=True)
                 elif health_score >= 60:
                     st.markdown("""
-                    <div style="background: linear-gradient(135deg, #1a1f2e 0%, #0a0e1a 100%); 
-                                color: #10b981; padding: 1rem; border-radius: 0.5rem; 
-                                border-left: 4px solid #10b981; margin: 1rem 0; border: 1px solid #334155;
-                                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
-                        <h4 style="margin: 0; color: #ffffff;">Good Financial Health</h4>
-                        <p style="margin: 0.5rem 0 0 0; color: #cbd5e1;">You're on the right track with your finances.</p>
+                    <div style="background: linear-gradient(135deg, {COLORS['surface']} 0%, {COLORS['background']} 100%); 
+                                color: {COLORS['success']}; padding: {SPACING['4']}; border-radius: {BORDER_RADIUS['md']}; 
+                                border-left: 4px solid {COLORS['success']}; margin: {SPACING['4']} 0; border: 1px solid {COLORS['border']};
+                                box-shadow: {SHADOWS['lg']};">
+                        <h4 style="margin: 0; color: {COLORS['text_primary']};">Good Financial Health</h4>
+                        <p style="margin: {SPACING['2']} 0 0 0; color: {COLORS['text_secondary']};">You're on the right track with your finances.</p>
                     </div>
                     """, unsafe_allow_html=True)
                 elif health_score >= 40:
                     st.markdown("""
-                    <div style="background: linear-gradient(135deg, #1a1f2e 0%, #0a0e1a 100%); 
-                                color: #f59e0b; padding: 1rem; border-radius: 0.5rem; 
-                                border-left: 4px solid #f59e0b; margin: 1rem 0; border: 1px solid #334155;
-                                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
-                        <h4 style="margin: 0; color: #ffffff;">Fair Financial Health</h4>
-                        <p style="margin: 0.5rem 0 0 0; color: #cbd5e1;">There's room for improvement in your financial planning.</p>
+                    <div style="background: linear-gradient(135deg, {COLORS['surface']} 0%, {COLORS['background']} 100%); 
+                                color: {COLORS['warning']}; padding: {SPACING['4']}; border-radius: {BORDER_RADIUS['md']}; 
+                                border-left: 4px solid {COLORS['warning']}; margin: {SPACING['4']} 0; border: 1px solid {COLORS['border']};
+                                box-shadow: {SHADOWS['lg']};">
+                        <h4 style="margin: 0; color: {COLORS['text_primary']};">Fair Financial Health</h4>
+                        <p style="margin: {SPACING['2']} 0 0 0; color: {COLORS['text_secondary']};">There's room for improvement in your financial planning.</p>
                     </div>
                     """, unsafe_allow_html=True)
                 else:
                     st.markdown("""
-                    <div style="background: linear-gradient(135deg, #1a1f2e 0%, #0a0e1a 100%); 
-                                color: #ef4444; padding: 1rem; border-radius: 0.5rem; 
-                                border-left: 4px solid #ef4444; margin: 1rem 0; border: 1px solid #334155;
-                                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
-                        <h4 style="margin: 0; color: #ffffff;">Needs Attention</h4>
-                        <p style="margin: 0.5rem 0 0 0; color: #cbd5e1;">Consider reviewing your spending patterns and budget.</p>
+                    <div style="background: linear-gradient(135deg, {COLORS['surface']} 0%, {COLORS['background']} 100%); 
+                                color: {COLORS['error']}; padding: {SPACING['4']}; border-radius: {BORDER_RADIUS['md']}; 
+                                border-left: 4px solid {COLORS['error']}; margin: {SPACING['4']} 0; border: 1px solid {COLORS['border']};
+                                box-shadow: {SHADOWS['lg']};">
+                        <h4 style="margin: 0; color: {COLORS['text_primary']};">Needs Attention</h4>
+                        <p style="margin: {SPACING['2']} 0 0 0; color: {COLORS['text_secondary']};">Consider reviewing your spending patterns and budget.</p>
                     </div>
                     """, unsafe_allow_html=True)
             else:
