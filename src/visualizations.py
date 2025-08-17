@@ -504,7 +504,7 @@ class DashboardVisualizations:
     def create_category_trend_chart(self, expenses_data: pd.DataFrame, 
                                   search_context: str = None) -> go.Figure:
         """
-        Create enhanced category trend chart with area and line combinations
+        Create enhanced category trend chart with stacked bar chart
         
         Args:
             expenses_data: DataFrame with expense data
@@ -535,7 +535,7 @@ class DashboardVisualizations:
             expenses_data['Date'].dt.to_period('M'), 'Category'
         ])['Amount'].sum().reset_index()
         
-        # Pivot data for stacked area chart
+        # Pivot data for stacked bar chart
         pivot_data = monthly_categories.pivot(
             index='Date', columns='Category', values='Amount'
         ).fillna(0)
@@ -543,20 +543,21 @@ class DashboardVisualizations:
         # Convert Period index to string
         pivot_data.index = pivot_data.index.astype(str)
         
-        # Create stacked area chart
+        # Create stacked bar chart
         fig = go.Figure()
         
         # Add traces for each category with premium styling
         for i, category in enumerate(pivot_data.columns):
             color = CHART_COLORS[i % len(CHART_COLORS)]
-            fig.add_trace(go.Scatter(
+            fig.add_trace(go.Bar(
                 x=pivot_data.index,
                 y=pivot_data[category],
                 name=category,
-                fill='tonexty',
-                line=dict(color=color, width=3, shape='spline'),
-                marker=dict(size=8, color=color, line=dict(color=COLORS['background'], width=1)),
-                stackgroup='one',
+                marker=dict(
+                    color=color,
+                    line=dict(color=COLORS['background'], width=1),
+                    opacity=0.9
+                ),
                 hovertemplate='<b>%{fullData.name}</b><br>' +
                              'Month: %{x}<br>' +
                              'Amount: $%{y:,.0f}<extra></extra>',
@@ -574,12 +575,11 @@ class DashboardVisualizations:
             height=500
         )
         
-        # Update axes
-        fig.update_xaxes(title='Month', tickangle=45)
-        fig.update_yaxes(title='Amount ($)', tickformat='$,.0f')
-        
-        # Enhanced legend configuration - positioned outside chart area
+        # Update layout for stacked bars
         fig.update_layout(
+            barmode='stack',
+            bargap=0.1,
+            bargroupgap=0.05,
             showlegend=True,
             legend=dict(
                 orientation="v",
@@ -587,7 +587,7 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,  # Move legend outside chart area to prevent overlap
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][3:5], 16)}, 0.95)',
+                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
                 bordercolor=COLORS['border'],
                 borderwidth=1,
                 font=dict(
@@ -601,6 +601,10 @@ class DashboardVisualizations:
             # Increase right margin to accommodate the legend
             margin=dict(l=80, r=120, t=100, b=100)
         )
+        
+        # Update axes
+        fig.update_xaxes(title='Month', tickangle=45)
+        fig.update_yaxes(title='Amount ($)', tickformat='$,.0f')
         
         return fig
     
