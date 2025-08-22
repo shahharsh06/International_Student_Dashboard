@@ -1049,7 +1049,7 @@ class StoryTab(BaseTab):
             self._render_personal_background()
         
         # Career aspirations
-        with st.expander("Career Aspirations"):
+        with st.expander("Career Aspirations", expanded=True):
             self._render_career_aspirations()
     
     def _render_academic_background(self) -> None:
@@ -1320,9 +1320,21 @@ class StoryTab(BaseTab):
                 ["All Events", "Academic", "Employment", "Personal", "Financial"]
             )
             
-            # Filter milestones based on selection
+            # Filter milestones based on selection with enhanced categorization
             if timeline_filter == "All Events":
                 filtered_milestones = TIMELINE_MILESTONES
+            elif timeline_filter == "Financial":
+                # Financial filter includes employment milestones (income-generating events)
+                filtered_milestones = [
+                    m for m in TIMELINE_MILESTONES 
+                    if m.get('type', '').lower() == 'employment'
+                ]
+            elif timeline_filter == "Employment":
+                # Employment filter shows employment milestones
+                filtered_milestones = [
+                    m for m in TIMELINE_MILESTONES 
+                    if m.get('type', '').lower() == 'employment'
+                ]
             else:
                 filtered_milestones = [
                     m for m in TIMELINE_MILESTONES 

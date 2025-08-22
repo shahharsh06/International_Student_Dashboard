@@ -1,3 +1,0 @@
-[33mab2d978[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Add missing data files: city_costs.csv and salary_data.csv for complete dashboard functionality
-[33m8f993e1[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Add comprehensive sample data for 2023-2025: cost of living and salary datasets with realistic amounts and no increments
-[33m1cddf81[m Optimize deployment: Make requirements-streamlit.txt the default requirements.txt for faster Streamlit Cloud deployment

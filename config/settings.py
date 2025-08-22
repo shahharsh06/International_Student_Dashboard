@@ -294,12 +294,13 @@ PERSONA = {
     'interests': ['Technology', 'Innovation', 'Global Development', 'AI/ML']
 }
 
-# Timeline milestones with enhanced metadata
+# Timeline milestones with enhanced metadata and proper categorization
+# Types: 'personal', 'academic', 'financial', 'employment' (employment milestones can have multiple types)
 TIMELINE_MILESTONES = [
     {
         'date': '2023-08-01', 
         'event': 'Arrived in College Station', 
-        'type': 'arrival',
+        'type': 'personal',
         'impact': 'Major life transition',
         'financial_implication': 'Initial setup costs'
     },

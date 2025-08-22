@@ -1562,18 +1562,12 @@ class DashboardVisualizations:
                 )
             ))
             
-            # Add milestone label as annotation with premium styling
+            # Add milestone label as annotation positioned beside the symbol (no overlap)
             fig.add_annotation(
                 x=milestone['date'],
                 y=i,
                 text=label,
-                showarrow=True,
-                arrowhead=2,
-                arrowsize=1,
-                arrowwidth=2,
-                arrowcolor=color,
-                ax=100,
-                ay=0,
+                showarrow=False,  # Remove arrows completely
                 font=dict(
                     size=12, 
                     color=COLORS['text_primary'],
@@ -1584,7 +1578,8 @@ class DashboardVisualizations:
                 borderwidth=2,
                 align='left',
                 xanchor='left',
-                yanchor='middle'
+                yanchor='middle',
+                xshift=15  # Move label to the right of the symbol to prevent overlap
             )
         
         # Apply professional layout
@@ -1594,8 +1589,15 @@ class DashboardVisualizations:
             height=500
         )
         
-        # Update axes
-        fig.update_xaxes(title='Date')
+        # Update axes with proper date formatting
+        fig.update_xaxes(
+            title='Date',
+            type='date',
+            tickformat='%b %Y',
+            tickmode='auto',
+            nticks=8,
+            tickangle=45
+        )
         fig.update_yaxes(title='Milestone', showticklabels=False)
         
         # Enhanced legend configuration - positioned outside chart area
