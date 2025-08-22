@@ -127,6 +127,12 @@ class DashboardLayout:
             --grid: #1e293b;
             --hover: #2d3748;
             
+            /* Enhanced gradient definitions for proper color transitions */
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #ff6b9d 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b9d 0%, #e91e63 50%, #00d4ff 100%);
+            --gradient-accent: linear-gradient(135deg, #b8a9ff 0%, #7c3aed 50%, #00d4ff 100%);
+            --gradient-surface: linear-gradient(135deg, #1a1f2e 0%, #2d3748 50%, #1a1f2e 100%);
+            
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -165,7 +171,7 @@ class DashboardLayout:
         
         /* Premium Dashboard Header */
         .dashboard-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             margin-bottom: 2rem;
@@ -183,9 +189,11 @@ class DashboardLayout:
             right: 0;
             bottom: 0;
             background: linear-gradient(45deg, 
-                rgba(0, 212, 255, 0.05) 0%, 
-                rgba(255, 107, 157, 0.05) 50%, 
-                rgba(184, 169, 255, 0.05) 100%);
+                rgba(0, 212, 255, 0.08) 0%, 
+                rgba(0, 153, 204, 0.06) 25%,
+                rgba(255, 107, 157, 0.08) 50%, 
+                rgba(233, 30, 99, 0.06) 75%,
+                rgba(0, 212, 255, 0.08) 100%);
             pointer-events: none;
         }
         
@@ -231,10 +239,11 @@ class DashboardLayout:
             position: absolute;
             bottom: -2px;
             left: 0;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 1px;
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
         }
         
         /* Premium Metric Cards */
@@ -257,13 +266,18 @@ class DashboardLayout:
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
         }
         
         .metric-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg), var(--shadow-glow);
             border-color: var(--primary);
+        }
+        
+        .metric-card:hover::before {
+            background: var(--gradient-secondary);
+            transition: background 0.3s ease;
         }
         
         .metric-title {
@@ -280,7 +294,7 @@ class DashboardLayout:
             font-weight: var(--font-weight-bold, 700);
             color: var(--text-primary);
             margin: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -365,81 +379,128 @@ class DashboardLayout:
             color: var(--text-secondary);
         }
         
-        /* Premium Tab Styling - Deep Navy Theme */
+        /* Premium Tab Styling - Broad Horizontal Design */
         .stTabs [data-baseweb="tab-list"] {
-            gap: 0.75rem;
-            background: var(--surface);
-            padding: 1rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-md);
-            margin: 1rem 0;
+            gap: 0.25rem;
+            background: transparent;
+            padding: 0.75rem;
+            border-radius: var(--radius-xl);
+            border: none;
+            box-shadow: none;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: stretch;
+            width: 100%;
         }
         
         .stTabs [data-baseweb="tab"] {
             height: 3.5rem;
             white-space: nowrap;
-            background: var(--surface);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(26, 31, 46, 0.6);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--text-secondary);
-            font-weight: 500;
+            font-weight: 600;
             font-family: 'Inter, sans-serif';
             padding: 0 1.5rem;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .stTabs [data-baseweb="tab"]:hover {
-            background: var(--hover);
+            background: rgba(26, 31, 46, 0.8);
             color: var(--text-primary);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             border-color: var(--primary);
+            backdrop-filter: blur(15px);
+            z-index: 2;
         }
         
         .stTabs [aria-selected="true"] {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
             color: var(--text-primary);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
+            border-color: transparent;
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+            transform: translateY(-4px);
             position: relative;
+            backdrop-filter: blur(20px);
+            z-index: 3;
+        }
+        
+        .stTabs [aria-selected="true"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0, 212, 255, 0.12) 0%, 
+                rgba(0, 153, 204, 0.08) 25%,
+                rgba(255, 107, 157, 0.12) 50%, 
+                rgba(233, 30, 99, 0.08) 75%,
+                rgba(0, 212, 255, 0.12) 100%);
+            border-radius: var(--radius-lg);
+            z-index: -1;
         }
         
         .stTabs [aria-selected="true"]::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -1px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
+            width: 70%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
             border-radius: 2px;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
         }
         
         /* Tab content styling */
         .stTabs [data-baseweb="tab-panel"] {
-            background: var(--surface);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            margin-top: 1rem;
-            border: 1px solid var(--border);
+            background: rgba(26, 31, 46, 0.4);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(51, 65, 85, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .stTabs [data-baseweb="tab-panel"]::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
         }
         
         /* Tab icon and text styling */
         .stTabs [data-baseweb="tab"] svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             margin-right: 0.5rem;
             vertical-align: middle;
+            transition: all 0.3s ease;
         }
         
         .stTabs [aria-selected="true"] svg {
             filter: brightness(0) invert(1);
+            transform: scale(1.1);
         }
         
         /* Tab container enhancements */
@@ -447,23 +508,98 @@ class DashboardLayout:
             margin: 2rem 0;
         }
         
+        /* Tab text styling */
+        .stTabs [data-baseweb="tab"] span {
+            font-size: 1rem;
+            letter-spacing: 0.025em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .stTabs [aria-selected="true"] span {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Tab separator lines */
+        .stTabs [data-baseweb="tab"]:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -0.125rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: linear-gradient(180deg, transparent 0%, rgba(51, 65, 85, 0.3) 50%, transparent 100%);
+            z-index: 1;
+        }
+        
         /* Responsive tab adjustments */
+        @media (max-width: 1024px) {
+            .stTabs [data-baseweb="tab-list"] {
+                gap: 0.2rem;
+                padding: 0.5rem;
+            }
+            
+            .stTabs [data-baseweb="tab"] {
+                height: 3.25rem;
+                padding: 0 1.25rem;
+                font-size: 0.9rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .stTabs [data-baseweb="tab-list"] {
-                padding: 0.75rem;
-                gap: 0.5rem;
+                padding: 0.5rem;
+                gap: 0.3rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .stTabs [data-baseweb="tab"] {
                 height: 3rem;
                 padding: 0 1rem;
                 font-size: 0.875rem;
+                min-width: 120px;
+                flex: 0 1 auto;
             }
+            
+            .stTabs [data-baseweb="tab-panel"] {
+                padding: 1.5rem;
+                margin-top: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stTabs [data-baseweb="tab-list"] {
+                gap: 0.2rem;
+                padding: 0.4rem;
+            }
+            
+            .stTabs [data-baseweb="tab"] {
+                height: 2.75rem;
+                padding: 0 0.75rem;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+        }
+        
+        /* Tab animation effects */
+        @keyframes tabGlow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3); }
+            50% { box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5); }
+        }
+        
+        .stTabs [aria-selected="true"] {
+            animation: tabGlow 3s ease-in-out infinite;
         }
         
         /* Premium Button Styling */
         .stButton > button {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
             color: var(--text-primary);
             border: none;
             border-radius: var(--radius-md);
@@ -476,6 +612,7 @@ class DashboardLayout:
         .stButton > button:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md), var(--shadow-glow);
+            background: var(--gradient-secondary);
         }
         
         /* Premium Data Tables */
@@ -499,6 +636,31 @@ class DashboardLayout:
             border-radius: var(--radius-md);
             padding: 1rem;
             box-shadow: var(--shadow-sm);
+            margin: 0;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+        }
+        
+        /* Chart Container Styling */
+        .chart-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chart-container [data-testid="stPlotlyChart"] {
+            margin-top: 0;
+            border-top: none;
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+        }
+        
+        /* Ensure charts are properly contained */
+        .chart-container .js-plotly-plot {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        /* Fix chart overflow issues */
+        .chart-container .plotly {
+            overflow: visible !important;
         }
         
         /* Premium Metric Containers */
@@ -538,12 +700,12 @@ class DashboardLayout:
         
         /* Premium Slider Styling */
         .stSlider > div > div > div > div {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
         }
         
         /* Premium Progress Bar Styling */
         .stProgress > div > div > div > div {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
         }
         
         /* Premium Success/Error/Warning Messages */
@@ -585,12 +747,12 @@ class DashboardLayout:
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--gradient-primary);
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            background: var(--gradient-secondary);
         }
         
         /* Premium Animations */
@@ -611,7 +773,7 @@ class DashboardLayout:
         
         /* Premium Hover Effects */
         .metric-card:hover::before {
-            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            background: var(--gradient-secondary);
         }
         
         /* Premium Focus States */
@@ -620,6 +782,23 @@ class DashboardLayout:
         .stSelectbox > div > div > div:focus-within {
             outline: none;
             box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+        }
+        
+        /* Enhanced gradient animations */
+        @keyframes gradientShift {
+            0%, 100% { 
+                background-position: 0% 50%; 
+            }
+            50% { 
+                background-position: 100% 50%; 
+            }
+        }
+        
+        .dashboard-header,
+        .stTabs [aria-selected="true"],
+        .metric-card::before {
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
         }
         </style>
         """ 

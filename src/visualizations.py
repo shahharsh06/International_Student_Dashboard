@@ -92,6 +92,69 @@ class DashboardVisualizations:
             'annotation': 12,
             'text': 10
         }
+    
+    def _format_label_for_display(self, label: str) -> str:
+        """
+        Format labels for professional display by removing underscores and applying proper capitalization.
+        
+        This method converts technical labels (e.g., 'Professional_Development') to 
+        professional display labels (e.g., 'Professional Development').
+        
+        Args:
+            label: Raw label string that may contain underscores
+            
+        Returns:
+            Formatted label string suitable for professional display
+            
+        Examples:
+            >>> _format_label_for_display('Professional_Development')
+            'Professional Development'
+            >>> _format_label_for_display('credit_card')
+            'Credit Card'
+            >>> _format_label_for_display('rent')
+            'Rent'
+        """
+        if not isinstance(label, str):
+            return str(label)
+        
+        # Replace underscores with spaces
+        formatted = label.replace('_', ' ')
+        
+        # Apply title case (first letter of each word capitalized)
+        formatted = formatted.title()
+        
+        # Handle common abbreviations and special cases
+        special_cases = {
+            'Ms': 'MS',
+            'Phd': 'PhD',
+            'Usa': 'USA',
+            'Uk': 'UK',
+            'Cs': 'CS',
+            'It': 'IT',
+            'Ai': 'AI',
+            'Ml': 'ML',
+            'Api': 'API',
+            'Sdk': 'SDK',
+            'Ui': 'UI',
+            'Ux': 'UX',
+            'Db': 'DB',
+            'Sql': 'SQL',
+            'No': 'No.',
+            'Vs': 'vs.',
+            'Etc': 'etc.',
+            'Et Al': 'et al.',
+            'Ie': 'i.e.',
+            'Eg': 'e.g.',
+            'Credit Card': 'Credit Card',  # Preserve existing proper formatting
+            'Debit Card': 'Debit Card',    # Preserve existing proper formatting
+            'Cash': 'Cash',                # Preserve existing proper formatting
+            'Check': 'Check'               # Preserve existing proper formatting
+        }
+        
+        for old, new in special_cases.items():
+            formatted = formatted.replace(old, new)
+        
+        return formatted
         
     def _apply_professional_layout(self, fig: go.Figure, title: str = None, 
                                  height: int = None, template: str = None) -> go.Figure:
@@ -355,7 +418,7 @@ class DashboardVisualizations:
         # Enhanced pie chart with premium styling - completely redesigned for maximum text visibility
         fig.add_trace(
             go.Pie(
-                labels=category_data['Category'],
+                labels=[self._format_label_for_display(cat) for cat in category_data['Category']],
                 values=category_data['Amount'],
                 name="Category Distribution",  # More descriptive name
                 hole=0,  # No hole - solid pie chart
@@ -449,7 +512,7 @@ class DashboardVisualizations:
         # Enhanced horizontal bar chart with premium styling
         fig.add_trace(
             go.Bar(
-                y=category_data['Category'],  # Categories on Y-axis for horizontal bars
+                y=[self._format_label_for_display(cat) for cat in category_data['Category']],  # Categories on Y-axis for horizontal bars
                 x=category_data['Amount'],    # Amounts on X-axis
                 name="Category Comparison",
                 orientation='h',              # Horizontal orientation
@@ -552,7 +615,7 @@ class DashboardVisualizations:
             fig.add_trace(go.Bar(
                 x=pivot_data.index,
                 y=pivot_data[category],
-                name=category,
+                name=self._format_label_for_display(category),
                 marker=dict(
                     color=color,
                     line=dict(color=COLORS['background'], width=1),
@@ -633,9 +696,12 @@ class DashboardVisualizations:
                 category_data = filtered_data[filtered_data['Category'] == category]
                 color = CHART_COLORS[i % len(CHART_COLORS)]
                 
+                # Format city names for professional display
+                formatted_cities = [self._format_label_for_display(city) for city in category_data['City']]
+                
                 fig.add_trace(go.Bar(
-                    name=category,
-                    x=category_data['City'],
+                    name=self._format_label_for_display(category),
+                    x=formatted_cities,
                     y=category_data['Average_Cost'],
                     marker=dict(
                         color=color,
@@ -685,14 +751,18 @@ class DashboardVisualizations:
             )
             
             # Update axes with better alignment
+            # Format city names for professional display
+            city_names = filtered_data['City'].unique()
+            formatted_city_names = [self._format_label_for_display(city) for city in city_names]
+            
             fig.update_xaxes(
                 title='City',
                 title_font=dict(size=14, color=COLORS['text_primary']),
                 tickfont=dict(size=11, color=COLORS['text_secondary']),
                 tickangle=45,
                 tickmode='array',
-                ticktext=filtered_data['City'].unique(),
-                tickvals=list(range(len(filtered_data['City'].unique())))
+                ticktext=formatted_city_names,
+                tickvals=list(range(len(city_names)))
             )
             
             fig.update_yaxes(
@@ -711,9 +781,13 @@ class DashboardVisualizations:
             print(f"Warning: Could not create city comparison chart: {e}")
             
             # Create a simple bar chart instead
+            # Format city names for professional display
+            city_names = city_costs_data['City'].unique()
+            formatted_city_names = [self._format_label_for_display(city) for city in city_names]
+            
             fig = go.Figure()
             fig.add_trace(go.Bar(
-                x=city_costs_data['City'].unique(),
+                x=formatted_city_names,
                 y=city_costs_data.groupby('City')['Average_Cost'].mean().values,
                 name='Average Cost by City',
                 marker_color=COLORS['primary']
@@ -758,11 +832,15 @@ class DashboardVisualizations:
             # Create pivot table
             pivot_data = filtered_data.pivot(index='Role', columns='City', values=value_col)
             
+            # Format labels for professional display
+            formatted_roles = [self._format_label_for_display(role) for role in pivot_data.index]
+            formatted_cities = [self._format_label_for_display(city) for city in pivot_data.columns]
+            
             # Create heatmap with premium styling
             fig = go.Figure(data=go.Heatmap(
                 z=pivot_data.values,
-                x=pivot_data.columns,
-                y=pivot_data.index,
+                x=formatted_cities,
+                y=formatted_roles,
                 colorscale=[
                     [0, COLORS['surface']],
                     [0.25, COLORS['accent3']],
@@ -791,8 +869,8 @@ class DashboardVisualizations:
                 tickfont=dict(size=11, color=COLORS['text_secondary']),
                 tickangle=45,
                 tickmode='array',
-                ticktext=pivot_data.columns,
-                tickvals=list(range(len(pivot_data.columns)))
+                ticktext=formatted_cities,
+                tickvals=list(range(len(formatted_cities)))
             )
             
             fig.update_yaxes(
@@ -822,9 +900,13 @@ class DashboardVisualizations:
             print(f"Warning: Could not create salary comparison chart: {e}")
             
             # Create a simple bar chart instead
+            # Format city names for professional display
+            city_names = filtered_data['City'].unique()
+            formatted_city_names = [self._format_label_for_display(city) for city in city_names]
+            
             fig = go.Figure()
             fig.add_trace(go.Bar(
-                x=filtered_data['City'].unique(),
+                x=formatted_city_names,
                 y=filtered_data.groupby('City')[value_col].mean().values,
                 name='Average Salary by City',
                 marker_color=COLORS['primary']
@@ -1368,7 +1450,7 @@ class DashboardVisualizations:
         
         # Create pie chart with premium styling
         fig = go.Figure(data=[go.Pie(
-            labels=payment_summary['PaymentType'],
+            labels=[self._format_label_for_display(ptype) for ptype in payment_summary['PaymentType']],
             values=payment_summary['Amount'],
             hole=0.4,
             textinfo='percent',
@@ -1460,7 +1542,7 @@ class DashboardVisualizations:
                 x=[milestone['date']],
                 y=[i],
                 mode='markers',
-                name=label,
+                name=self._format_label_for_display(label),
                 marker=dict(
                     size=24,
                     color=color,
@@ -1470,7 +1552,7 @@ class DashboardVisualizations:
                 showlegend=False,
                 hovertemplate='<b>%{fullData.name}</b><br>' +
                              '<b>Date:</b> %{x}<br>' +
-                             '<b>Type:</b> ' + milestone_type.title() + '<br>' +
+                             '<b>Type:</b> ' + self._format_label_for_display(milestone_type) + '<br>' +
                              '<b>Impact:</b> ' + milestone.get('impact', 'N/A') + '<br>' +
                              '<b>Financial:</b> ' + milestone.get('financial_implication', 'N/A') + '<extra></extra>',
                 hoverlabel=dict(
@@ -1545,6 +1627,27 @@ class DashboardVisualizations:
 
 def main():
     """Test the visualization module"""
+    # Test label formatting
+    viz = DashboardVisualizations()
+    print("Testing label formatting:")
+    test_labels = [
+        'Professional_Development',
+        'credit_card',
+        'rent',
+        'Software_Engineer',
+        'Data_Scientist',
+        'New_York',
+        'San_Francisco',
+        'credit_card',
+        'debit_card',
+        'cash',
+        'check'
+    ]
+    
+    for label in test_labels:
+        formatted = viz._format_label_for_display(label)
+        print(f"  '{label}' -> '{formatted}'")
+    
     # Create sample data for testing
     sample_data = pd.DataFrame({
         'YearMonth': pd.date_range('2023-01-01', periods=12, freq='M'),
@@ -1555,7 +1658,6 @@ def main():
     })
     
     # Test visualization
-    viz = DashboardVisualizations()
     fig = viz.create_monthly_trend_chart(sample_data)
     fig.show()
 
