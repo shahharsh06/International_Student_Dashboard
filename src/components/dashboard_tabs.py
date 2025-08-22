@@ -369,7 +369,7 @@ class OverviewTab(BaseTab):
             
             if not monthly_data.empty:
                 trend_chart = self.viz.create_monthly_trend_chart(monthly_data)
-                st.plotly_chart(trend_chart, use_container_width=True, config={'displayModeBar': False})
+                st.plotly_chart(trend_chart, use_container_width=True, config={'displayModeBar': False}, key="overview_trend_chart")
             else:
                 st.info("No trend data available for analysis")
         
@@ -388,15 +388,15 @@ class OverviewTab(BaseTab):
             
             with col1:
                 category_chart = self.viz.create_category_breakdown_chart(category_breakdown)
-                st.plotly_chart(category_chart, use_container_width=True, config={'displayModeBar': False})
+                st.plotly_chart(category_chart, use_container_width=True, config={'displayModeBar': False}, key="overview_category_chart")
             
             with col2:
                 comparison_chart = self.viz.create_category_comparison_chart(category_breakdown)
-                st.plotly_chart(comparison_chart, use_container_width=True, config={'displayModeBar': False})
+                st.plotly_chart(comparison_chart, use_container_width=True, config={'displayModeBar': False}, key="overview_comparison_chart")
             
             # Full-width trend chart
             category_trend_chart = self.viz.create_category_trend_chart(self.data['expenses'])
-            st.plotly_chart(category_trend_chart, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(category_trend_chart, use_container_width=True, config={'displayModeBar': False}, key="overview_category_trend_chart")
         
         except Exception as e:
             self.error_handler.display_error("Category Analysis Error", str(e))
@@ -433,7 +433,7 @@ class ExpensesTab(BaseTab):
                 anomaly_chart = self.viz.create_anomaly_detection_chart(
                     self.data['expenses'], anomalies
                 )
-                st.plotly_chart(anomaly_chart, use_container_width=True, config={'displayModeBar': False})
+                st.plotly_chart(anomaly_chart, use_container_width=True, config={'displayModeBar': False}, key="expenses_anomaly_chart")
                 
                 # Anomaly details table
                 self._render_anomaly_details(anomalies)
@@ -559,7 +559,7 @@ class ExpensesTab(BaseTab):
             )
         )
         
-        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, key="expenses_total_expense_chart")
     
     def _render_average_expense_chart(self, payment_metrics: pd.DataFrame) -> None:
         """Render average expense by payment method chart."""
@@ -632,7 +632,7 @@ class ExpensesTab(BaseTab):
             )
         )
         
-        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False}, key="expenses_average_expense_chart")
     
     def _render_city_comparison(self) -> None:
         """Render city cost comparison analysis."""
@@ -640,7 +640,7 @@ class ExpensesTab(BaseTab):
         
         try:
             city_chart = self.viz.create_city_comparison_chart(self.data['city_costs'])
-            st.plotly_chart(city_chart, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(city_chart, use_container_width=True, config={'displayModeBar': False}, key="expenses_city_chart")
         
         except Exception as e:
             self.error_handler.display_error("City Comparison Error", str(e))
@@ -652,7 +652,7 @@ class ExpensesTab(BaseTab):
         try:
             expenses = self.data['expenses']
             payment_pie = self.viz.create_payment_pie_chart(expenses)
-            st.plotly_chart(payment_pie, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(payment_pie, use_container_width=True, config={'displayModeBar': False}, key="expenses_payment_pie_chart")
         
         except Exception as e:
             self.error_handler.display_error("Payment Pie Chart Error", str(e))
@@ -966,12 +966,12 @@ class ROIAnalysisTab(BaseTab):
         with col1:
             # Degree Cost vs Salaries chart
             degree_chart = self.viz.create_roi_analysis_chart(roi_analysis)
-            st.plotly_chart(degree_chart, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(degree_chart, use_container_width=True, config={'displayModeBar': False}, key="roi_degree_chart")
         
         with col2:
             # Break-even Timeline chart
             timeline_chart = self.viz.create_break_even_timeline_chart(roi_analysis)
-            st.plotly_chart(timeline_chart, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(timeline_chart, use_container_width=True, config={'displayModeBar': False}, key="roi_timeline_chart")
     
     def _render_city_comparisons(self):
         """Render city comparison charts"""
@@ -979,11 +979,11 @@ class ROIAnalysisTab(BaseTab):
         
         # Top chart: Annual Salary by Role and City
         salary_chart = self.viz.create_salary_comparison_chart(self.data['salary_data'])
-        st.plotly_chart(salary_chart, use_container_width=True, config={'displayModeBar': False})
+        st.plotly_chart(salary_chart, use_container_width=True, config={'displayModeBar': False}, key="city_salary_chart")
         
         # Bottom chart: Monthly Cost Comparison by City and Category
         cost_chart = self.viz.create_city_comparison_chart(self.data['city_costs'])
-        st.plotly_chart(cost_chart, use_container_width=True, config={'displayModeBar': False})
+        st.plotly_chart(cost_chart, use_container_width=True, config={'displayModeBar': False}, key="city_cost_chart")
     
     def _render_roi_insights(self):
         """Render ROI insights"""
@@ -1343,7 +1343,7 @@ class StoryTab(BaseTab):
             
             # Enhanced timeline chart
             timeline_chart = self.viz.create_timeline_chart(filtered_milestones)
-            st.plotly_chart(timeline_chart, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(timeline_chart, use_container_width=True, config={'displayModeBar': False}, key="story_timeline_chart")
         
         except Exception as e:
             self.error_handler.display_error("Timeline Error", str(e))
