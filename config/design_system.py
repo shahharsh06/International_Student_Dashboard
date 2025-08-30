@@ -159,9 +159,9 @@ CHART_COLORS = [
 ]
 
 CHART_LAYOUT = {
-    'background_color': COLORS['background'],
-    'paper_bgcolor': COLORS['background'],
-    'plot_bgcolor': COLORS['surface'],
+    'background_color': 'rgba(0,0,0,0)',  # Transparent background
+    'paper_bgcolor': 'rgba(0,0,0,0)',  # Transparent background
+    'plot_bgcolor': 'rgba(0,0,0,0)',  # Transparent plot background
     'font_color': COLORS['text_primary'],
     'title_font_color': COLORS['text_primary'],
     'legend_font_color': COLORS['text_secondary'],
@@ -329,8 +329,8 @@ def get_chart_layout(title: str, height: int = 500) -> dict:
             }
         },
         'height': height,
-        'paper_bgcolor': COLORS['background'],
-        'plot_bgcolor': COLORS['surface'],
+        'paper_bgcolor': 'rgba(0,0,0,0)',  # Transparent background
+        'plot_bgcolor': 'rgba(0,0,0,0)',  # Transparent plot background
         'margin': dict(l=50, r=50, t=80, b=50),
         'showlegend': False,
         'xaxis': {
@@ -379,7 +379,7 @@ def get_hover_label_config(border_color: str = None) -> dict:
         border_color = COLORS['primary']
     
     return {
-        'bgcolor': COLORS['surface'],
+        'bgcolor': 'rgba(0,0,0,0)',  # Transparent background
         'bordercolor': border_color,
         'font': {
             'color': COLORS['text_primary'],

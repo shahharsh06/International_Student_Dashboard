@@ -311,8 +311,8 @@ class ScenarioAnalyzer:
                 'font': {'size': 20, 'color': COLORS['text_primary']}
             },
             height=500,
-            paper_bgcolor=COLORS['background'],
-            plot_bgcolor=COLORS['surface'],
+            paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
             margin=dict(l=50, r=50, t=80, b=50),
             showlegend=False
         )
@@ -349,8 +349,8 @@ class ScenarioAnalyzer:
                 'font': {'size': 20, 'color': COLORS['text_primary']}
             },
             height=500,
-            paper_bgcolor=COLORS['background'],
-            plot_bgcolor=COLORS['surface'],
+            paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
             margin=dict(l=50, r=50, t=80, b=50),
             showlegend=False
         )
@@ -391,14 +391,18 @@ class ScenarioAnalyzer:
                 'text': 'Percentage Changes by Scenario',
                 'x': 0.5,
                 'xanchor': 'center',
-                'font': {'size': 20, 'color': COLORS['text_primary']}
+                'font': dict(
+                    size=20, 
+                    color=COLORS['text_primary'],
+                    family='Inter, sans-serif'
+                )
             },
             xaxis_title='Scenario',
             yaxis_title='Change (%)',
             barmode='group',
             height=500,
-            paper_bgcolor=COLORS['background'],
-            plot_bgcolor=COLORS['surface']
+            paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            plot_bgcolor='rgba(0,0,0,0)'  # Transparent plot background
         )
         
         charts['changes_comparison'] = fig_changes

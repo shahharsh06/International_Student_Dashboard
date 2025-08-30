@@ -504,8 +504,8 @@ class ExpensesTab(BaseTab):
         fig.update_layout(
             height=400,
             xaxis_tickangle=45,
-            paper_bgcolor=COLORS['background'],
-            plot_bgcolor=COLORS['surface'],
+            paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
             title={
                 'text': 'Total Expenses by Payment Method',
                 'x': 0.5,
@@ -553,7 +553,7 @@ class ExpensesTab(BaseTab):
             hovertemplate='<b>%{x}</b><br>' +
                          'Total Expenses: $%{y:,.0f}<extra></extra>',
             hoverlabel=dict(
-                bgcolor=COLORS['surface'],
+                bgcolor='rgba(0,0,0,0)',  # Transparent background
                 bordercolor=COLORS['primary'],
                 font=dict(color=COLORS['text_primary'], size=12)
             )
@@ -577,8 +577,8 @@ class ExpensesTab(BaseTab):
         fig.update_layout(
             height=400,
             xaxis_tickangle=45,
-            paper_bgcolor=COLORS['background'],
-            plot_bgcolor=COLORS['surface'],
+            paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
             title={
                 'text': 'Average Expense by Payment Method',
                 'x': 0.5,
@@ -593,7 +593,7 @@ class ExpensesTab(BaseTab):
             },
             font=dict(
                 family='Inter, sans-serif',
-                color=COLORS['text_secondary']
+                color=COLORS['text_primary']
             ),
             margin=dict(l=80, r=50, t=80, b=80)
         )
@@ -626,8 +626,8 @@ class ExpensesTab(BaseTab):
             hovertemplate='<b>%{x}</b><br>' +
                          'Average Expense: $%{y:,.2f}<extra></extra>',
             hoverlabel=dict(
-                bgcolor=COLORS['surface'],
-                bordercolor=COLORS['accent2'],
+                bgcolor='rgba(0,0,0,0)',  # Transparent background
+                bordercolor=COLORS['primary'],
                 font=dict(color=COLORS['text_primary'], size=12)
             )
         )

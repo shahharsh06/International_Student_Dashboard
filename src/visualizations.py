@@ -50,9 +50,9 @@ class DashboardVisualizations:
             y=0.95,
             xanchor="left",
             x=1.02,
-            bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-            bordercolor=COLORS['border'],
-            borderwidth=1,
+            bgcolor='rgba(0,0,0,0)',  # Transparent background
+            bordercolor='rgba(0,0,0,0)',  # Transparent border
+            borderwidth=0,  # No border
             font=dict(
                 color=COLORS['text_primary'],
                 family='Inter, sans-serif',
@@ -72,7 +72,7 @@ class DashboardVisualizations:
             border_color = COLORS['primary']
         
         return dict(
-            bgcolor=COLORS['surface'],
+            bgcolor='rgba(0,0,0,0)',  # Transparent background
             bordercolor=border_color,
             font=dict(
                 color=COLORS['text_primary'],
@@ -178,8 +178,8 @@ class DashboardVisualizations:
             },
             height=height,
             template=template,
-            paper_bgcolor=COLORS['background'],
-            plot_bgcolor=COLORS['surface'],
+            paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+            plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
             margin=dict(l=80, r=80, t=100, b=80),
             showlegend=True,
             legend=self._get_standard_legend_config(),
@@ -407,8 +407,8 @@ class DashboardVisualizations:
             fig.update_layout(
                 title='No Data Available',
                 height=400,
-                paper_bgcolor=COLORS['background'],
-                plot_bgcolor=COLORS['surface']
+                paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+                plot_bgcolor='rgba(0,0,0,0)'  # Transparent plot background
             )
             return fig
         
@@ -437,7 +437,7 @@ class DashboardVisualizations:
                          'Amount: $%{value:,.0f}<br>' +
                              'Percentage: %{percent:.1%}<extra></extra>',
                 hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
+                    bgcolor='rgba(0,0,0,0)',  # Transparent background
                     bordercolor=COLORS['primary'],
                     font=dict(color=COLORS['text_primary'], size=12)
                 )
@@ -462,9 +462,9 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,  # Move legend to right side, outside chart area (consistent with other charts)
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                bordercolor=COLORS['border'],
-                borderwidth=1,
+                bgcolor='rgba(0,0,0,0)',
+                bordercolor='rgba(0,0,0,0)',
+                borderwidth=0,
                 font=dict(
                     color=COLORS['text_primary'],
                     family='Inter, sans-serif',
@@ -501,8 +501,8 @@ class DashboardVisualizations:
             fig.update_layout(
                 title='No Data Available',
                 height=400,
-                paper_bgcolor=COLORS['background'],
-                plot_bgcolor=COLORS['surface']
+                paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+                plot_bgcolor='rgba(0,0,0,0)'  # Transparent plot background
             )
             return fig
         
@@ -531,7 +531,7 @@ class DashboardVisualizations:
                 hovertemplate='<b>%{y}</b><br>' +
                              'Amount: $%{x:,.0f}<extra></extra>',
                 hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
+                    bgcolor='rgba(0,0,0,0)',  # Transparent background
                     bordercolor=COLORS['primary'],
                     font=dict(color=COLORS['text_primary'], size=12)
                 )
@@ -588,8 +588,8 @@ class DashboardVisualizations:
             fig.update_layout(
                 title='No Data Available',
                 height=400,
-                paper_bgcolor=COLORS['background'],
-                plot_bgcolor=COLORS['surface']
+                paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+                plot_bgcolor='rgba(0,0,0,0)'  # Transparent plot background
             )
             return fig
         
@@ -625,7 +625,7 @@ class DashboardVisualizations:
                              'Month: %{x}<br>' +
                              'Amount: $%{y:,.0f}<extra></extra>',
                 hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
+                    bgcolor='rgba(0,0,0,0)',  # Transparent background
                     bordercolor=color,
                     font=dict(color=COLORS['text_primary'], size=12)
                 )
@@ -650,9 +650,9 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,  # Move legend outside chart area to prevent overlap
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                bordercolor=COLORS['border'],
-                borderwidth=1,
+                bgcolor='rgba(0,0,0,0)',
+                bordercolor='rgba(0,0,0,0)',
+                borderwidth=0,
                 font=dict(
                     color=COLORS['text_primary'],
                     family='Inter, sans-serif',
@@ -712,7 +712,7 @@ class DashboardVisualizations:
                                  'Category: %{fullData.name}<br>' +
                                  'Average Cost: $%{y:,.0f}<extra></extra>',
                     hoverlabel=dict(
-                        bgcolor=COLORS['surface'],
+                        bgcolor='rgba(0,0,0,0)',  # Transparent background
                         bordercolor=color,
                         font=dict(color=COLORS['text_primary'], size=12)
                     )
@@ -737,9 +737,9 @@ class DashboardVisualizations:
                     y=0.95,
                     xanchor="left",
                     x=1.02,  # Move legend outside chart area to prevent overlap
-                    bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                    bordercolor=COLORS['border'],
-                    borderwidth=1,
+                    bgcolor='rgba(0,0,0,0)',
+                    bordercolor='rgba(0,0,0,0)',
+                    borderwidth=0,
                     font=dict(
                         color=COLORS['text_primary'],
                         family='Inter, sans-serif',
@@ -798,8 +798,8 @@ class DashboardVisualizations:
                 xaxis_title='City',
                 yaxis_title='Average Cost ($)',
                 height=400,
-                paper_bgcolor=COLORS['background'],
-                plot_bgcolor=COLORS['surface'],
+                paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+                plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
                 font=dict(color=COLORS['text_primary'])
             )
             
@@ -853,7 +853,7 @@ class DashboardVisualizations:
                 textfont=dict(size=10, color=COLORS['text_primary']),
                 hoverongaps=False,
                 hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
+                    bgcolor='rgba(0,0,0,0)',  # Transparent background
                     bordercolor=COLORS['primary'],
                     font=dict(color=COLORS['text_primary'], size=12)
                 )
@@ -917,8 +917,8 @@ class DashboardVisualizations:
                 xaxis_title='City',
                 yaxis_title='Average Salary ($)',
                 height=400,
-                paper_bgcolor=COLORS['background'],
-                plot_bgcolor=COLORS['surface'],
+                paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+                plot_bgcolor='rgba(0,0,0,0)',  # Transparent plot background
                 font=dict(color=COLORS['text_primary'])
             )
             
@@ -953,8 +953,8 @@ class DashboardVisualizations:
             fig.update_layout(
                 title='No Data Available',
                 height=400,
-                paper_bgcolor=COLORS['background'],
-                plot_bgcolor=COLORS['surface']
+                paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+                plot_bgcolor='rgba(0,0,0,0)'  # Transparent plot background
             )
             return fig
         
@@ -986,7 +986,7 @@ class DashboardVisualizations:
                 hovertemplate='<b>Degree Cost</b><br>' +
                              'Amount: $%{y:,.0f}<extra></extra>',
                 hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
+                    bgcolor='rgba(0,0,0,0)',  # Transparent background
                     bordercolor=COLORS['error'],
                     font=dict(color=COLORS['text_primary'], size=12)
                 )
@@ -1013,7 +1013,7 @@ class DashboardVisualizations:
                     hovertemplate=f'<b>{scenario_name.title()}</b><br>' +
                                  'Salary: $%{y:,.0f}<extra></extra>',
                     hoverlabel=dict(
-                        bgcolor=COLORS['surface'],
+                        bgcolor='rgba(0,0,0,0)',  # Transparent background
                         bordercolor=color,
                         font=dict(color=COLORS['text_primary'], size=12)
                     )
@@ -1040,9 +1040,9 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,  # Move legend outside chart area to prevent overlap
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                bordercolor=COLORS['border'],
-                borderwidth=1,
+                bgcolor='rgba(0,0,0,0)',
+                bordercolor='rgba(0,0,0,0)',
+                borderwidth=0,
                 font=dict(
                     color=COLORS['text_primary'],
                     family='Inter, sans-serif',
@@ -1117,7 +1117,7 @@ class DashboardVisualizations:
                     hovertemplate='<b>Month %{x}</b><br>' +
                                  'Cumulative: $%{y:,.0f}<extra></extra>',
                     hoverlabel=dict(
-                        bgcolor=COLORS['surface'],
+                        bgcolor='rgba(0,0,0,0)',  # Transparent background
                         bordercolor=COLORS['primary'],
                         font=dict(color=COLORS['text_primary'], size=12)
                     )
@@ -1263,9 +1263,9 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,  # Move legend outside chart area to prevent overlap
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                bordercolor=COLORS['border'],
-                borderwidth=1,
+                bgcolor='rgba(0,0,0,0)',
+                bordercolor='rgba(0,0,0,0)',
+                borderwidth=0,
                 font=dict(
                     color=COLORS['text_primary'],
                     family='Inter, sans-serif',
@@ -1309,7 +1309,7 @@ class DashboardVisualizations:
             hovertemplate='<b>%{x}</b><br>' +
                          'Amount: $%{y:,.0f}<extra></extra>',
             hoverlabel=dict(
-                bgcolor=COLORS['surface'],
+                bgcolor='rgba(0,0,0,0)',  # Transparent background
                 bordercolor=COLORS['primary'],
                 font=dict(color=COLORS['text_primary'], size=12)
             )
@@ -1332,7 +1332,7 @@ class DashboardVisualizations:
                              'Amount: $%{y:,.0f}<br>' +
                              'ANOMALY<extra></extra>',
                 hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
+                    bgcolor='rgba(0,0,0,0)',  # Transparent background
                     bordercolor=COLORS['warning'],
                     font=dict(color=COLORS['text_primary'], size=12)
                 )
@@ -1351,7 +1351,7 @@ class DashboardVisualizations:
             hovertemplate='<b>Trend Line</b><br>' +
                          'Amount: $%{y:,.0f}<extra></extra>',
             hoverlabel=dict(
-                bgcolor=COLORS['surface'],
+                bgcolor='rgba(0,0,0,0)',  # Transparent background
                 bordercolor=COLORS['accent2'],
                 font=dict(color=COLORS['text_primary'], size=12)
             )
@@ -1418,9 +1418,9 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,  # Move legend outside chart area to prevent overlap
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                bordercolor=COLORS['border'],
-                borderwidth=1,
+                bgcolor='rgba(0,0,0,0)',
+                bordercolor='rgba(0,0,0,0)',
+                borderwidth=0,
                 font=dict(
                     color=COLORS['text_primary'],
                     family='Inter, sans-serif',
@@ -1469,7 +1469,7 @@ class DashboardVisualizations:
                          'Amount: $%{value:,.0f}<br>' +
                          'Percentage: %{percent:.1%}<extra></extra>',
             hoverlabel=dict(
-                bgcolor=COLORS['surface'],
+                bgcolor='rgba(0,0,0,0)',  # Transparent background
                 bordercolor=COLORS['primary'],
                 font=dict(color=COLORS['text_primary'], size=12)
             )
@@ -1491,9 +1491,9 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.9)',
-                bordercolor=COLORS['border'],
-            borderwidth=1,
+                bgcolor='rgba(0,0,0,0)',
+                bordercolor='rgba(0,0,0,0)',
+                borderwidth=0,
                 font=dict(
                     color=COLORS['text_primary'],
                     family='Inter, sans-serif',
@@ -1556,7 +1556,7 @@ class DashboardVisualizations:
                              '<b>Impact:</b> ' + milestone.get('impact', 'N/A') + '<br>' +
                              '<b>Financial:</b> ' + milestone.get('financial_implication', 'N/A') + '<extra></extra>',
                 hoverlabel=dict(
-                    bgcolor=COLORS['surface'],
+                    bgcolor='rgba(0,0,0,0)',  # Transparent background
                     bordercolor=color,
                     font=dict(color=COLORS['text_primary'], size=12)
                 )
@@ -1609,9 +1609,9 @@ class DashboardVisualizations:
                 y=0.95,
                 xanchor="left",
                 x=1.02,  # Move legend outside chart area to prevent overlap
-                bgcolor=f'rgba({int(COLORS["surface"][1:3], 16)}, {int(COLORS["surface"][3:5], 16)}, {int(COLORS["surface"][5:7], 16)}, 0.95)',
-                bordercolor=COLORS['border'],
-                borderwidth=1,
+                bgcolor='rgba(0,0,0,0)',
+                bordercolor='rgba(0,0,0,0)',
+                borderwidth=0,
                 font=dict(
                     color=COLORS['text_primary'],
                     family='Inter, sans-serif',

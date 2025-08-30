@@ -5,7 +5,7 @@ Date,Category,Amount,PaymentType,Description
 2023-08-15,Shopping,130.0,Credit_Card,Back to school supplies
 2023-08-20,Restaurants,75.0,Debit_Card,Dinner with roommates
 2023-08-25,Gas,49.5,Credit_Card,Car fuel
-2023-08-31,Setup_Costs,350.0,Credit_Card,Initial apartment setup and furniture
+2023-08-31,Setup Costs,350.0,Credit_Card,Initial apartment setup and furniture
 2023-09-01,Rent,400.0,Credit_Card,Monthly rent payment
 2023-09-05,Groceries,87.8,Debit_Card,Weekly grocery shopping
 2023-08-10,Tuition,10000.0,Bank_Transfer,Fall semester tuition
@@ -32,10 +32,10 @@ Date,Category,Amount,PaymentType,Description
 2023-12-25,Utilities,93.0,Bank_Transfer,Electricity and water
 2023-12-30,Gas,49.0,Credit_Card,Car fuel
 2024-01-15,Rent,400.0,Cheque,Monthly rent payment
-2024-01-16,Professional_Development,200.0,Credit_Card,Professional attire for GTA position
+2024-01-16,Professional Development,200.0,Credit_Card,Professional attire for GTA position
 2024-01-20,Groceries,87.25,Debit_Card,Weekly grocery shopping
 2024-01-25,Tuition,10000.0,Bank_Transfer,Spring semester tuition
-2024-01-28,Mobile_Recharge,45.0,Credit_Card,Phone plan renewal
+2024-01-28,Mobile Recharge,45.0,Credit_Card,Phone plan renewal
 2024-02-01,Rent,400.0,Cheque,Monthly rent payment
 2024-02-05,Groceries,89.8,Debit_Card,Weekly grocery shopping
 2024-02-10,Restaurants,68.0,Credit_Card,Dinner with friends
@@ -50,7 +50,7 @@ Date,Category,Amount,PaymentType,Description
 2024-03-25,Restaurants,48.0,Debit_Card,Lunch on campus
 2024-04-01,Rent,400.0,Cheque,Monthly rent payment
 2024-04-05,Groceries,91.45,Debit_Card,Weekly grocery shopping
-2024-04-10,Car_Insurance,180.0,Bank_Transfer,Monthly car insurance
+2024-04-10,Car Insurance,180.0,Bank_Transfer,Monthly car insurance
 2024-04-15,Gas,53.5,Debit_Card,Car fuel
 2024-04-20,Shopping,78.0,Credit_Card,Home supplies
 2024-04-25,Restaurants,58.0,Debit_Card,Dinner with classmates
@@ -76,7 +76,7 @@ Date,Category,Amount,PaymentType,Description
 2024-08-05,Groceries,96.6,Debit_Card,Weekly grocery shopping
 2024-08-10,Utilities,93.5,Bank_Transfer,Electricity and water
 2024-08-15,Shopping,135.0,Credit_Card,Back to school supplies
-2024-08-19,Professional_Development,300.0,Credit_Card,Advanced coursework materials and software
+2024-08-19,Professional Development,300.0,Credit_Card,Advanced coursework materials and software
 2024-08-20,Restaurants,78.0,Debit_Card,Dinner with roommates
 2024-08-25,Gas,50.25,Credit_Card,Car fuel
 2024-09-01,Rent,400.0,Cheque,Monthly rent payment
@@ -105,7 +105,7 @@ Date,Category,Amount,PaymentType,Description
 2024-12-25,Utilities,93.75,Bank_Transfer,Electricity and water
 2024-12-30,Gas,49.75,Credit_Card,Car fuel
 2025-01-13,Rent,400.0,Cheque,Monthly rent payment
-2025-01-15,Professional_Development,400.0,Credit_Card,Capstone project materials and research
+2025-01-15,Professional Development,400.0,Credit_Card,Capstone project materials and research
 2025-01-20,Groceries,89.2,Debit_Card,Weekly grocery shopping
 2025-01-25,Tuition,10000.0,Bank_Transfer,Final semester tuition
 2025-01-28,Books,150.0,Credit_Card,Capstone project resources
@@ -115,25 +115,25 @@ Date,Category,Amount,PaymentType,Description
 2025-02-15,Gas,50.25,Debit_Card,Car fuel
 2025-02-20,Shopping,180.0,Credit_Card,Professional attire for job interviews
 2025-02-25,Utilities,94.5,Bank_Transfer,Electricity and water
-2025-02-28,Professional_Development,250.0,Credit_Card,Job search resources and networking events
+2025-02-28,Professional Development,250.0,Credit_Card,Job search resources and networking events
 2025-03-01,Rent,400.0,Cheque,Monthly rent payment
 2025-03-05,Groceries,88.15,Debit_Card,Weekly grocery shopping
 2025-03-10,Travel,200.0,Credit_Card,Job interview travel
 2025-03-15,Utilities,92.5,Bank_Transfer,Electricity and water
 2025-03-20,Books,120.0,Credit_Card,Additional capstone materials
 2025-03-25,Restaurants,65.0,Debit_Card,Lunch on campus
-2025-03-31,Professional_Development,300.0,Credit_Card,Conference attendance and professional development
+2025-03-31,Professional Development,300.0,Credit_Card,Conference attendance and professional development
 2025-04-01,Rent,400.0,Cheque,Monthly rent payment
 2025-04-05,Groceries,94.45,Debit_Card,Weekly grocery shopping
-2025-04-10,Car_Insurance,180.0,Bank_Transfer,Monthly car insurance
+2025-04-10,Car Insurance,180.0,Bank_Transfer,Monthly car insurance
 2025-04-15,Gas,54.5,Debit_Card,Car fuel
 2025-04-20,Shopping,95.0,Credit_Card,Home supplies
 2025-04-25,Restaurants,70.0,Debit_Card,Dinner with classmates
-2025-04-30,Professional_Development,200.0,Credit_Card,Resume and portfolio development
+2025-04-30,Professional Development,200.0,Credit_Card,Resume and portfolio development
 2025-05-01,Rent,400.0,Cheque,Monthly rent payment
 2025-05-05,Groceries,96.8,Debit_Card,Weekly grocery shopping
-2025-05-10,Graduation_Costs,500.0,Bank_Transfer,Graduation ceremony and cap/gown
+2025-05-10,Graduation Costs,500.0,Bank_Transfer,Graduation ceremony and cap/gown
 2025-05-15,Utilities,95.5,Bank_Transfer,Electricity and water
 2025-05-20,Travel,300.0,Credit_Card,Post-graduation celebration trip
 2025-05-25,Gas,52.25,Debit_Card,Car fuel
-2025-05-31,Professional_Development,400.0,Credit_Card,Job relocation and startup costs
+2025-05-31,Professional Development,400.0,Credit_Card,Job relocation and startup costs
